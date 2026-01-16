@@ -14,7 +14,7 @@ async function loadMenuData() {
 
   try {
     const basePath = window.location.origin;
-    const response = await fetch(`${basePath}/_data/menu.json`);
+    const response = await fetch(`${basePath}/data/menu.json`);
     const data = await response.json();
     menuItems = data.items || [];
 

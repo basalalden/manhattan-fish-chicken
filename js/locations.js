@@ -14,7 +14,7 @@ async function loadLocationsData() {
 
   try {
     const basePath = window.location.origin;
-    const response = await fetch(`${basePath}/_data/locations.json`);
+    const response = await fetch(`${basePath}/data/locations.json`);
     const data = await response.json();
     locations = data.locations || [];
 

@@ -14,7 +14,7 @@ async function loadMarketData() {
 
   try {
     const basePath = window.location.origin;
-    const response = await fetch(`${basePath}/_data/market.json`);
+    const response = await fetch(`${basePath}/data/market.json`);
     const data = await response.json();
     marketProducts = data.products || [];
 

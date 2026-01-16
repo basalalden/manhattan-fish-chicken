@@ -11,7 +11,7 @@ collections:
     files:
       - label: "Menu Items"
         name: "menu"
-        file: "_data/menu.json"
+        file: "data/menu.json"
         fields:
           - label: "Menu Items"
             name: "items"
@@ -26,7 +26,7 @@ collections:
 
       - label: "Locations"
         name: "locations"
-        file: "_data/locations.json"
+        file: "data/locations.json"
         fields:
           - label: "Locations"
             name: "locations"
@@ -46,7 +46,7 @@ collections:
 
       - label: "Market Products"
         name: "market"
-        file: "_data/market.json"
+        file: "data/market.json"
         fields:
           - label: "Products"
             name: "products"
