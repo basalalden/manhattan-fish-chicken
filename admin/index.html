@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager | Manhattan Fish & Chicken</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+  <title>Admin | Manhattan Fish & Chicken</title>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   <script>
     CMS.init({
       config: {
+        load_config_file: false,
         backend: {
           name: 'github',
           repo: 'basalalden/manhattan-fish-chicken',
@@ -24,14 +24,12 @@
             label: 'Menu Items',
             folder: '_data/menu',
             create: true,
-            slug: '{{slug}}',
             fields: [
               { label: 'Name', name: 'name', widget: 'string' },
               { label: 'Category', name: 'category', widget: 'select', options: ['chicken', 'fish', 'seafood', 'combos', 'sides', 'drinks'] },
               { label: 'Description', name: 'description', widget: 'text' },
               { label: 'Price', name: 'price', widget: 'string' },
-              { label: 'Image URL', name: 'image', widget: 'string', required: false },
-              { label: 'Badge', name: 'badge', widget: 'string', required: false, hint: 'e.g., Best Seller, Popular, New' }
+              { label: 'Badge', name: 'badge', widget: 'string', required: false }
             ]
           },
           {
@@ -39,32 +37,11 @@
             label: 'Locations',
             folder: '_data/locations',
             create: true,
-            slug: '{{slug}}',
             fields: [
               { label: 'Name', name: 'name', widget: 'string' },
               { label: 'Address', name: 'address', widget: 'string' },
-              { label: 'City', name: 'city', widget: 'string' },
               { label: 'Phone', name: 'phone', widget: 'string' },
-              { label: 'Hours - Weekday', name: 'hours_weekday', widget: 'string' },
-              { label: 'Hours - Weekend', name: 'hours_weekend', widget: 'string' },
-              { label: 'DoorDash Link', name: 'doordash', widget: 'string', required: false },
-              { label: 'UberEats Link', name: 'ubereats', widget: 'string', required: false },
-              { label: 'Grubhub Link', name: 'grubhub', widget: 'string', required: false }
-            ]
-          },
-          {
-            name: 'market',
-            label: 'Market Products',
-            folder: '_data/market',
-            create: true,
-            slug: '{{slug}}',
-            fields: [
-              { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Category', name: 'category', widget: 'select', options: ['fish', 'seafood', 'poultry', 'groceries'] },
-              { label: 'Description', name: 'description', widget: 'text' },
-              { label: 'Price', name: 'price', widget: 'string' },
-              { label: 'Unit', name: 'unit', widget: 'string', hint: 'e.g., / lb, / each, / dozen' },
-              { label: 'Badge', name: 'badge', widget: 'string', required: false }
+              { label: 'Hours', name: 'hours', widget: 'string' }
             ]
           }
         ]
