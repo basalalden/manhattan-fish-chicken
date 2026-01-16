@@ -13,7 +13,7 @@ async function loadLocationsData() {
   const grid = document.getElementById('locations-grid');
 
   try {
-    const response = await fetch('/_data/locations.json');
+    const response = await fetch('_data/locations.json');
     const data = await response.json();
     locations = data.locations || [];
 

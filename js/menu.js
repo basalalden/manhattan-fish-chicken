@@ -13,7 +13,7 @@ async function loadMenuData() {
   const grid = document.getElementById('menu-grid');
 
   try {
-    const response = await fetch('/_data/menu.json');
+    const response = await fetch('_data/menu.json');
     const data = await response.json();
     menuItems = data.items || [];
 
