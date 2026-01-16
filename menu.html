@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View the full menu at Manhattan Fish & Chicken. Crispy fried chicken, fresh fish, jumbo shrimp, seafood platters, sides, and more. Order online today!">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Menu - Manhattan Fish & Chicken">
+  <meta property="og:description" content="Crispy fried chicken, fresh fish, jumbo shrimp, and more. View our full menu and order online.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+
+  <title>Menu | Manhattan Fish & Chicken</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🐟</div>
+        <span>MFC</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="market.html">Market</a>
+        <a href="locations.html">Locations</a>
+        <a href="order.html">Order</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="order.html" class="btn btn-primary btn-sm md:hidden lg:flex">Order Now</a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="market.html">Market</a>
+    <a href="locations.html">Locations</a>
+    <a href="order.html">Order Online</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="reveal">Our Menu</h1>
+      <p class="reveal">Fresh, delicious, and made to order. Explore our full selection of fried chicken, fish, and seafood.</p>
+      <nav class="breadcrumb reveal">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Menu</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu Section -->
+  <section class="section">
+    <div class="container">
+      <!-- Search Bar -->
+      <div class="reveal" style="max-width: 500px; margin: 0 auto var(--space-8);">
+        <div style="position: relative;">
+          <input type="text" id="menu-search" class="form-input" placeholder="Search menu items..." style="padding-left: 50px;">
+          <svg style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--gray-400);" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="menu-tabs reveal">
+        <button class="menu-tab active" data-category="all">All</button>
+        <button class="menu-tab" data-category="chicken">Chicken</button>
+        <button class="menu-tab" data-category="fish">Fish</button>
+        <button class="menu-tab" data-category="seafood">Seafood</button>
+        <button class="menu-tab" data-category="combos">Combos</button>
+        <button class="menu-tab" data-category="sides">Sides</button>
+        <button class="menu-tab" data-category="drinks">Drinks</button>
+      </div>
+
+      <!-- No Results Message -->
+      <div id="no-results" style="display: none; text-align: center; padding: var(--space-12); color: var(--text-secondary);">
+        <svg style="margin: 0 auto var(--space-4); opacity: 0.5;" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-2);">No items found</h3>
+        <p>Try a different search term or browse by category</p>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="grid" style="gap: var(--space-4); margin-top: var(--space-8);">
+
+        <!-- CHICKEN SECTION -->
+        <div class="menu-item" data-category="chicken">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=200&q=80" alt="Fried Chicken Wings" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fried Chicken Wings</h4>
+              <span class="menu-item-price">$8.99</span>
+            </div>
+            <p class="menu-item-description">6 crispy golden wings, seasoned to perfection</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="chicken">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=200&q=80" alt="3 Piece Chicken" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">3 Piece Chicken Meal</h4>
+              <span class="menu-item-price">$12.99</span>
+            </div>
+            <p class="menu-item-description">3 pieces of crispy fried chicken with fries and coleslaw</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="chicken">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=200&q=80" alt="5 Piece Chicken" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">5 Piece Chicken Meal</h4>
+              <span class="menu-item-price">$18.99</span>
+            </div>
+            <p class="menu-item-description">5 pieces of crispy fried chicken with fries and coleslaw</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="chicken">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=200&q=80" alt="Chicken Tenders" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Chicken Tenders</h4>
+              <span class="menu-item-price">$10.99</span>
+            </div>
+            <p class="menu-item-description">5 crispy chicken tenders with your choice of dipping sauce</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="chicken">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=200&q=80" alt="Spicy Chicken" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Spicy Fried Chicken</h4>
+              <span class="menu-item-price">$13.99</span>
+            </div>
+            <p class="menu-item-description">3 pieces with our signature spicy seasoning blend</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+              <span class="menu-tag spicy">Spicy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FISH SECTION -->
+        <div class="menu-item" data-category="fish">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" alt="Fried Whiting" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fried Whiting (2pc)</h4>
+              <span class="menu-item-price">$10.99</span>
+            </div>
+            <p class="menu-item-description">Fresh whiting fillets, lightly battered and fried crispy</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="fish">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" alt="Fried Tilapia" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fried Tilapia</h4>
+              <span class="menu-item-price">$12.99</span>
+            </div>
+            <p class="menu-item-description">Whole tilapia fried to golden perfection</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="fish">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" alt="Fried Porgy" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fried Porgy</h4>
+              <span class="menu-item-price">$13.99</span>
+            </div>
+            <p class="menu-item-description">Whole porgy fish, seasoned and fried crispy</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="fish">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" alt="Catfish" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Southern Fried Catfish</h4>
+              <span class="menu-item-price">$14.99</span>
+            </div>
+            <p class="menu-item-description">Catfish fillets with southern-style cornmeal breading</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="fish">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=200&q=80" alt="Salmon" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Grilled Salmon</h4>
+              <span class="menu-item-price">$16.99</span>
+            </div>
+            <p class="menu-item-description">Fresh Atlantic salmon, grilled with lemon butter</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag" style="background: #D1FAE5; color: #065F46;">Healthy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEAFOOD SECTION -->
+        <div class="menu-item" data-category="seafood">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=200&q=80" alt="Jumbo Shrimp" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Jumbo Shrimp (8pc)</h4>
+              <span class="menu-item-price">$14.99</span>
+            </div>
+            <p class="menu-item-description">Large butterflied shrimp, fried golden and crispy</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="seafood">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=200&q=80" alt="Popcorn Shrimp" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Popcorn Shrimp</h4>
+              <span class="menu-item-price">$11.99</span>
+            </div>
+            <p class="menu-item-description">Bite-sized crispy shrimp, perfect for snacking</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="seafood">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=200&q=80" alt="Fried Scallops" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fried Scallops</h4>
+              <span class="menu-item-price">$15.99</span>
+            </div>
+            <p class="menu-item-description">Tender sea scallops, lightly breaded and fried</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="seafood">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=200&q=80" alt="Crab Legs" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Snow Crab Legs</h4>
+              <span class="menu-item-price">$24.99</span>
+            </div>
+            <p class="menu-item-description">1 lb of fresh snow crab legs with butter</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag" style="background: #FEF3C7; color: #92400E;">Premium</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="seafood">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=200&q=80" alt="Lobster Tail" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Lobster Tail</h4>
+              <span class="menu-item-price">$29.99</span>
+            </div>
+            <p class="menu-item-description">Grilled lobster tail with garlic butter</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag" style="background: #FEF3C7; color: #92400E;">Premium</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMBOS SECTION -->
+        <div class="menu-item" data-category="combos">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=200&q=80" alt="Fish & Chicken Combo" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fish & Chicken Combo</h4>
+              <span class="menu-item-price">$15.99</span>
+            </div>
+            <p class="menu-item-description">2pc chicken + 1pc whiting with fries and coleslaw</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+              <span class="menu-tag" style="background: #DBEAFE; color: #1E40AF;">Best Value</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="combos">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=200&q=80" alt="Shrimp & Fish Combo" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Shrimp & Fish Combo</h4>
+              <span class="menu-item-price">$16.99</span>
+            </div>
+            <p class="menu-item-description">4pc jumbo shrimp + 1pc whiting with fries</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="combos">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=200&q=80" alt="Seafood Platter" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Seafood Platter</h4>
+              <span class="menu-item-price">$22.99</span>
+            </div>
+            <p class="menu-item-description">Fish, shrimp, scallops, and crab cake with fries</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+              <span class="menu-tag" style="background: #FEF3C7; color: #92400E;">Popular</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="combos">
+          <div class="menu-item-image">
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=200&q=80" alt="Family Bucket" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Family Bucket</h4>
+              <span class="menu-item-price">$39.99</span>
+            </div>
+            <p class="menu-item-description">10pc chicken, 4pc fish, large fries, coleslaw, rolls</p>
+            <div class="menu-item-tags">
+              <span class="menu-tag halal">Halal</span>
+              <span class="menu-tag" style="background: #DBEAFE; color: #1E40AF;">Feeds 4-6</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDES SECTION -->
+        <div class="menu-item" data-category="sides">
+          <div class="menu-item-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🍟</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">French Fries</h4>
+              <span class="menu-item-price">$3.99</span>
+            </div>
+            <p class="menu-item-description">Crispy golden fries, perfectly seasoned</p>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="sides">
+          <div class="menu-item-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🥗</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Coleslaw</h4>
+              <span class="menu-item-price">$2.99</span>
+            </div>
+            <p class="menu-item-description">Creamy homestyle coleslaw</p>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="sides">
+          <div class="menu-item-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🧅</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Onion Rings</h4>
+              <span class="menu-item-price">$4.99</span>
+            </div>
+            <p class="menu-item-description">Thick-cut onion rings, crispy battered</p>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="sides">
+          <div class="menu-item-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🌽</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Corn on the Cob</h4>
+              <span class="menu-item-price">$2.99</span>
+            </div>
+            <p class="menu-item-description">Buttered corn on the cob</p>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="sides">
+          <div class="menu-item-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🥔</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Mashed Potatoes</h4>
+              <span class="menu-item-price">$3.49</span>
+            </div>
+            <p class="menu-item-description">Creamy mashed potatoes with gravy</p>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="sides">
+          <div class="menu-item-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🍞</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Cornbread</h4>
+              <span class="menu-item-price">$1.99</span>
+            </div>
+            <p class="menu-item-description">Sweet homemade cornbread</p>
+          </div>
+        </div>
+
+        <!-- DRINKS SECTION -->
+        <div class="menu-item" data-category="drinks">
+          <div class="menu-item-image" style="background: var(--gray-100); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🥤</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fountain Drinks</h4>
+              <span class="menu-item-price">$2.49</span>
+            </div>
+            <p class="menu-item-description">Coca-Cola, Sprite, Fanta, Lemonade</p>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="drinks">
+          <div class="menu-item-image" style="background: var(--gray-100); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🧃</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Fresh Lemonade</h4>
+              <span class="menu-item-price">$3.49</span>
+            </div>
+            <p class="menu-item-description">Freshly squeezed lemonade</p>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="drinks">
+          <div class="menu-item-image" style="background: var(--gray-100); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">🍵</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Sweet Tea</h4>
+              <span class="menu-item-price">$2.99</span>
+            </div>
+            <p class="menu-item-description">Southern-style sweet iced tea</p>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="drinks">
+          <div class="menu-item-image" style="background: var(--gray-100); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 2rem;">💧</span>
+          </div>
+          <div class="menu-item-content">
+            <div class="menu-item-header">
+              <h4 class="menu-item-name">Bottled Water</h4>
+              <span class="menu-item-price">$1.99</span>
+            </div>
+            <p class="menu-item-description">Purified bottled water</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container py-16">
+      <h2 class="reveal">Ready to Order?</h2>
+      <p class="reveal">Get your favorites delivered or pick up in-store</p>
+      <div class="flex justify-center gap-4 flex-wrap reveal">
+        <a href="order.html" class="btn btn-dark btn-lg">Order Online</a>
+        <a href="tel:+12125550123" class="btn btn-secondary btn-lg">Call (212) 555-0123</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">🐟</div>
+            <span>MFC</span>
+          </a>
+          <p>Manhattan Fish & Chicken - Your neighborhood destination for the best fried chicken, fresh fish, and seafood since 2009.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="menu.html">Menu</a>
+            <a href="market.html">Market</a>
+            <a href="locations.html">Locations</a>
+            <a href="order.html">Order Online</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Hours</h4>
+          <div class="footer-links">
+            <span>Mon - Thu: 10AM - 10PM</span>
+            <span>Fri - Sat: 10AM - 12AM</span>
+            <span>Sunday: 11AM - 10PM</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>(212) 555-0123</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>info@manhattanfc.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Manhattan Fish & Chicken. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Order Button -->
+  <a href="order.html" class="floating-order-btn btn btn-primary">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    Order Now
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
