@@ -13,7 +13,8 @@ async function loadMarketData() {
   const grid = document.getElementById('market-grid');
 
   try {
-    const response = await fetch('_data/market.json');
+    const basePath = window.location.origin;
+    const response = await fetch(`${basePath}/_data/market.json`);
     const data = await response.json();
     marketProducts = data.products || [];
 
