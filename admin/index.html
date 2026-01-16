@@ -4,13 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin | Manhattan Fish & Chicken</title>
+  <script>
+    window.CMS_MANUAL_INIT = true;
+  </script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   <script>
     CMS.init({
       config: {
-        load_config_file: false,
         backend: {
           name: 'github',
           repo: 'basalalden/manhattan-fish-chicken',
@@ -24,11 +26,13 @@
             label: 'Menu Items',
             folder: '_data/menu',
             create: true,
+            slug: '{{slug}}',
             fields: [
               { label: 'Name', name: 'name', widget: 'string' },
               { label: 'Category', name: 'category', widget: 'select', options: ['chicken', 'fish', 'seafood', 'combos', 'sides', 'drinks'] },
               { label: 'Description', name: 'description', widget: 'text' },
               { label: 'Price', name: 'price', widget: 'string' },
+              { label: 'Image', name: 'image', widget: 'image', required: false },
               { label: 'Badge', name: 'badge', widget: 'string', required: false }
             ]
           },
@@ -37,11 +41,29 @@
             label: 'Locations',
             folder: '_data/locations',
             create: true,
+            slug: '{{slug}}',
             fields: [
               { label: 'Name', name: 'name', widget: 'string' },
               { label: 'Address', name: 'address', widget: 'string' },
+              { label: 'City', name: 'city', widget: 'string' },
               { label: 'Phone', name: 'phone', widget: 'string' },
-              { label: 'Hours', name: 'hours', widget: 'string' }
+              { label: 'Hours - Weekday', name: 'hours_weekday', widget: 'string' },
+              { label: 'Hours - Weekend', name: 'hours_weekend', widget: 'string' }
+            ]
+          },
+          {
+            name: 'market',
+            label: 'Market Products',
+            folder: '_data/market',
+            create: true,
+            slug: '{{slug}}',
+            fields: [
+              { label: 'Name', name: 'name', widget: 'string' },
+              { label: 'Category', name: 'category', widget: 'select', options: ['fish', 'seafood', 'poultry', 'groceries'] },
+              { label: 'Description', name: 'description', widget: 'text' },
+              { label: 'Price', name: 'price', widget: 'string' },
+              { label: 'Unit', name: 'unit', widget: 'string' },
+              { label: 'Image', name: 'image', widget: 'image', required: false }
             ]
           }
         ]
