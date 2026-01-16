@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: basalalden/manhattan-fish-chicken
+  name: git-gateway
   branch: main
 
 media_folder: "assets/images"
@@ -18,8 +17,7 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Price", name: "price", widget: "string"}
       - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Badge", name: "badge", widget: "string", required: false, hint: "e.g., Best Seller, Popular, New"}
-      - {label: "Tags", name: "tags", widget: "list", required: false, hint: "e.g., Halal, Spicy"}
+      - {label: "Badge", name: "badge", widget: "string", required: false}
 
   - name: "locations"
     label: "Locations"
@@ -33,46 +31,6 @@ collections:
       - {label: "Phone", name: "phone", widget: "string"}
       - {label: "Hours - Weekday", name: "hours_weekday", widget: "string"}
       - {label: "Hours - Weekend", name: "hours_weekend", widget: "string"}
-      - {label: "Hours - Sunday", name: "hours_sunday", widget: "string"}
-      - {label: "Features", name: "features", widget: "list", hint: "e.g., Dine-In, Takeout, Delivery, Market"}
-      - {label: "DoorDash Link", name: "doordash", widget: "string", required: false}
-      - {label: "UberEats Link", name: "ubereats", widget: "string", required: false}
-      - {label: "Grubhub Link", name: "grubhub", widget: "string", required: false}
-
-  - name: "pages"
-    label: "Pages"
-    files:
-      - label: "About Page"
-        name: "about"
-        file: "_data/about.json"
-        fields:
-          - {label: "Hero Title", name: "hero_title", widget: "string"}
-          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "text"}
-          - {label: "Story Title", name: "story_title", widget: "string"}
-          - {label: "Story Content", name: "story_content", widget: "markdown"}
-          - {label: "Years in Business", name: "years", widget: "number"}
-          - {label: "Number of Locations", name: "locations_count", widget: "number"}
-          - {label: "Happy Customers", name: "customers", widget: "string"}
-          - {label: "Team Members", name: "team_count", widget: "string"}
-
-      - label: "Contact Info"
-        name: "contact"
-        file: "_data/contact.json"
-        fields:
-          - {label: "Main Phone", name: "phone", widget: "string"}
-          - {label: "Email", name: "email", widget: "string"}
-          - {label: "Catering Phone", name: "catering_phone", widget: "string"}
-
-      - label: "Site Settings"
-        name: "settings"
-        file: "_data/settings.json"
-        fields:
-          - {label: "Site Name", name: "site_name", widget: "string"}
-          - {label: "Tagline", name: "tagline", widget: "string"}
-          - {label: "Facebook URL", name: "facebook", widget: "string", required: false}
-          - {label: "Instagram URL", name: "instagram", widget: "string", required: false}
-          - {label: "Twitter URL", name: "twitter", widget: "string", required: false}
-          - {label: "TikTok URL", name: "tiktok", widget: "string", required: false}
 
   - name: "market"
     label: "Market Products"
@@ -84,6 +42,5 @@ collections:
       - {label: "Category", name: "category", widget: "select", options: ["fish", "seafood", "poultry", "groceries"]}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Price", name: "price", widget: "string"}
-      - {label: "Unit", name: "unit", widget: "string", hint: "e.g., / lb, / each, / dozen"}
+      - {label: "Unit", name: "unit", widget: "string"}
       - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Badge", name: "badge", widget: "string", required: false}

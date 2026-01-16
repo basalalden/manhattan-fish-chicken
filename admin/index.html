@@ -4,79 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin | Manhattan Fish & Chicken</title>
+  <link href="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.css" rel="stylesheet" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
-    CMS.init({
-      config: {
-        backend: {
-          name: 'git-gateway',
-          branch: 'main'
-        },
-        media_folder: 'assets/images',
-        public_folder: '/assets/images',
-        collections: [
-          {
-            name: 'menu',
-            label: 'Menu Items',
-            folder: '_data/menu',
-            create: true,
-            slug: '{{slug}}',
-            fields: [
-              { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Category', name: 'category', widget: 'select', options: ['chicken', 'fish', 'seafood', 'combos', 'sides', 'drinks'] },
-              { label: 'Description', name: 'description', widget: 'text' },
-              { label: 'Price', name: 'price', widget: 'string' },
-              { label: 'Image', name: 'image', widget: 'image', required: false },
-              { label: 'Badge', name: 'badge', widget: 'string', required: false }
-            ]
-          },
-          {
-            name: 'locations',
-            label: 'Locations',
-            folder: '_data/locations',
-            create: true,
-            slug: '{{slug}}',
-            fields: [
-              { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Address', name: 'address', widget: 'string' },
-              { label: 'City', name: 'city', widget: 'string' },
-              { label: 'Phone', name: 'phone', widget: 'string' },
-              { label: 'Hours - Weekday', name: 'hours_weekday', widget: 'string' },
-              { label: 'Hours - Weekend', name: 'hours_weekend', widget: 'string' }
-            ]
-          },
-          {
-            name: 'market',
-            label: 'Market Products',
-            folder: '_data/market',
-            create: true,
-            slug: '{{slug}}',
-            fields: [
-              { label: 'Name', name: 'name', widget: 'string' },
-              { label: 'Category', name: 'category', widget: 'select', options: ['fish', 'seafood', 'poultry', 'groceries'] },
-              { label: 'Description', name: 'description', widget: 'text' },
-              { label: 'Price', name: 'price', widget: 'string' },
-              { label: 'Unit', name: 'unit', widget: 'string' },
-              { label: 'Image', name: 'image', widget: 'image', required: false }
-            ]
-          }
-        ]
-      }
-    });
-  </script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
 </html>
