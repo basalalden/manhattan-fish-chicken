@@ -1,6 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/admin/(.*)",
+      "headers": [
+        { "key": "Content-Type", "value": "text/yaml" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/admin", "destination": "/admin/index.html" }
   ]
