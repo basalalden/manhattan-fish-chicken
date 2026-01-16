@@ -1,0 +1,60 @@
+{
+  "locations": [
+    {
+      "name": "Harlem",
+      "address": "456 W 125th Street",
+      "city": "New York, NY 10027",
+      "phone": "(212) 555-0125",
+      "hours_weekday": "10:00 AM - 11:00 PM",
+      "hours_weekend": "10:00 AM - 12:00 AM",
+      "hours_sunday": "11:00 AM - 10:00 PM",
+      "features": ["Dine-In", "Takeout", "Delivery"],
+      "doordash": "https://www.doordash.com",
+      "ubereats": "https://www.ubereats.com",
+      "grubhub": "https://www.grubhub.com",
+      "map_embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.5!2d-73.95!3d40.81!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
+    },
+    {
+      "name": "Washington Heights",
+      "address": "789 W 181st Street",
+      "city": "New York, NY 10033",
+      "phone": "(212) 555-0181",
+      "hours_weekday": "10:00 AM - 11:00 PM",
+      "hours_weekend": "10:00 AM - 12:00 AM",
+      "hours_sunday": "11:00 AM - 10:00 PM",
+      "features": ["Dine-In", "Takeout", "Delivery", "Market"],
+      "doordash": "https://www.doordash.com",
+      "ubereats": "https://www.ubereats.com",
+      "grubhub": "https://www.grubhub.com",
+      "map_embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.5!2d-73.95!3d40.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
+    },
+    {
+      "name": "Inwood",
+      "address": "321 Dyckman Street",
+      "city": "New York, NY 10040",
+      "phone": "(212) 555-0199",
+      "hours_weekday": "10:00 AM - 10:00 PM",
+      "hours_weekend": "10:00 AM - 11:00 PM",
+      "hours_sunday": "11:00 AM - 9:00 PM",
+      "features": ["Takeout", "Delivery"],
+      "doordash": "https://www.doordash.com",
+      "ubereats": "https://www.ubereats.com",
+      "grubhub": "https://www.grubhub.com",
+      "map_embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.5!2d-73.93!3d40.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
+    },
+    {
+      "name": "The Bronx",
+      "address": "567 E Tremont Avenue",
+      "city": "Bronx, NY 10457",
+      "phone": "(718) 555-0157",
+      "hours_weekday": "10:00 AM - 11:00 PM",
+      "hours_weekend": "10:00 AM - 12:00 AM",
+      "hours_sunday": "11:00 AM - 10:00 PM",
+      "features": ["Dine-In", "Takeout", "Delivery", "Market"],
+      "doordash": "https://www.doordash.com",
+      "ubereats": "https://www.ubereats.com",
+      "grubhub": "https://www.grubhub.com",
+      "map_embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.5!2d-73.90!3d40.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
+    }
+  ]
+}

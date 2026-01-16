@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Find a Manhattan Fish & Chicken location near you. 4 convenient locations in Harlem, Bronx, Brooklyn, and Queens. View hours, directions, and order online.">
-
+  <meta name="description" content="Find a Manhattan Fish & Chicken location near you. Multiple convenient locations serving NYC. View hours, directions, and order online.">
   <meta property="og:title" content="Locations - Manhattan Fish & Chicken">
-  <meta property="og:description" content="Find a Manhattan Fish & Chicken near you. 4 locations serving NYC.">
+  <meta property="og:description" content="Find a Manhattan Fish & Chicken near you.">
   <meta property="og:type" content="website">
-
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
-
   <title>Locations | Manhattan Fish & Chicken</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -57,7 +54,7 @@
   <header class="page-header">
     <div class="container">
       <h1 class="reveal">Our Locations</h1>
-      <p class="reveal">4 convenient locations serving the best fish & chicken across NYC</p>
+      <p class="reveal">Find a Manhattan Fish & Chicken near you</p>
       <nav class="breadcrumb reveal">
         <a href="index.html">Home</a>
         <span>/</span>
@@ -66,214 +63,28 @@
     </div>
   </header>
 
-  <!-- Find Nearest -->
-  <section class="section" style="padding-bottom: 0;">
+  <!-- Locations Section -->
+  <section class="section">
     <div class="container">
-      <div class="reveal text-center">
-        <button onclick="findNearestLocation()" class="btn btn-primary btn-lg">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Find Nearest Location
-        </button>
+      <!-- Loading State -->
+      <div id="locations-loading" style="text-align: center; padding: var(--space-12);">
+        <div class="loading-spinner"></div>
+        <p>Loading locations...</p>
       </div>
+
+      <!-- Locations Grid (populated by JS) -->
+      <div id="locations-grid" class="grid grid-2" style="gap: var(--space-6);"></div>
     </div>
   </section>
 
-  <!-- Locations Grid -->
-  <section class="section">
-    <div class="container">
-      <div class="grid grid-2" style="gap: var(--space-8);">
-
-        <!-- Harlem Location -->
-        <div class="location-card reveal" data-location="harlem" data-features="dine-in,takeout,delivery,market">
-          <div class="location-card-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.5!2d-73.95!3d40.81!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ4JzMyLjAiTiA3M8KwNTYnNTMuNSJX!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <div class="location-card-content">
-            <h3 class="location-card-name">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Harlem
-            </h3>
-            <div class="location-card-info">
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div>
-                  <strong>123 W 125th Street</strong><br>
-                  New York, NY 10027
-                </div>
-              </div>
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+12125550123">(212) 555-0123</a>
-              </div>
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Hours:</strong><br>
-                  Mon-Thu: 10AM - 11PM<br>
-                  Fri-Sat: 10AM - 12AM<br>
-                  Sun: 11AM - 10PM
-                </div>
-              </div>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
-              <span class="menu-tag" style="background: var(--primary); color: white;">Dine-In</span>
-              <span class="menu-tag" style="background: var(--secondary); color: var(--dark);">Takeout</span>
-              <span class="menu-tag" style="background: #10B981; color: white;">Delivery</span>
-              <span class="menu-tag" style="background: var(--dark); color: white;">Market</span>
-            </div>
-            <div class="location-card-actions">
-              <a href="order.html?location=harlem" class="btn btn-primary btn-sm">Order Now</a>
-              <button class="btn btn-secondary btn-sm get-directions-btn" data-address="123 W 125th Street, New York, NY 10027">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-                Directions
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bronx Location -->
-        <div class="location-card reveal" data-location="bronx" data-features="dine-in,takeout,delivery">
-          <div class="location-card-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.5!2d-73.89!3d40.86!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDUxJzQxLjAiTiA3M8KwNTMnMTYuNCJX!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <div class="location-card-content">
-            <h3 class="location-card-name">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Bronx
-            </h3>
-            <div class="location-card-info">
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div>
-                  <strong>456 E Fordham Road</strong><br>
-                  Bronx, NY 10458
-                </div>
-              </div>
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+17185550124">(718) 555-0124</a>
-              </div>
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Hours:</strong><br>
-                  Mon-Thu: 10AM - 10PM<br>
-                  Fri-Sat: 10AM - 11PM<br>
-                  Sun: 11AM - 9PM
-                </div>
-              </div>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
-              <span class="menu-tag" style="background: var(--primary); color: white;">Dine-In</span>
-              <span class="menu-tag" style="background: var(--secondary); color: var(--dark);">Takeout</span>
-              <span class="menu-tag" style="background: #10B981; color: white;">Delivery</span>
-            </div>
-            <div class="location-card-actions">
-              <a href="order.html?location=bronx" class="btn btn-primary btn-sm">Order Now</a>
-              <button class="btn btn-secondary btn-sm get-directions-btn" data-address="456 E Fordham Road, Bronx, NY 10458">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-                Directions
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Brooklyn Location -->
-        <div class="location-card reveal" data-location="brooklyn" data-features="dine-in,takeout,delivery,market,parking">
-          <div class="location-card-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.5!2d-73.96!3d40.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDM5JzAwLjQiTiA3M8KwNTcnMzQuOSJX!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <div class="location-card-content">
-            <h3 class="location-card-name">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Brooklyn
-            </h3>
-            <div class="location-card-info">
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div>
-                  <strong>789 Flatbush Avenue</strong><br>
-                  Brooklyn, NY 11226
-                </div>
-              </div>
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+17185550125">(718) 555-0125</a>
-              </div>
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Hours:</strong><br>
-                  Mon-Thu: 10AM - 11PM<br>
-                  Fri-Sat: 10AM - 12AM<br>
-                  Sun: 11AM - 10PM
-                </div>
-              </div>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
-              <span class="menu-tag" style="background: var(--primary); color: white;">Dine-In</span>
-              <span class="menu-tag" style="background: var(--secondary); color: var(--dark);">Takeout</span>
-              <span class="menu-tag" style="background: #10B981; color: white;">Delivery</span>
-              <span class="menu-tag" style="background: var(--dark); color: white;">Market</span>
-              <span class="menu-tag" style="background: var(--info); color: white;">Parking</span>
-            </div>
-            <div class="location-card-actions">
-              <a href="order.html?location=brooklyn" class="btn btn-primary btn-sm">Order Now</a>
-              <button class="btn btn-secondary btn-sm get-directions-btn" data-address="789 Flatbush Avenue, Brooklyn, NY 11226">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-                Directions
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Queens Location -->
-        <div class="location-card reveal" data-location="queens" data-features="dine-in,takeout,delivery,drive-thru">
-          <div class="location-card-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.5!2d-73.79!3d40.70!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzE1LjUiTiA3M8KwNDcnMzEuMiJX!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-          <div class="location-card-content">
-            <h3 class="location-card-name">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Queens
-            </h3>
-            <div class="location-card-info">
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <div>
-                  <strong>321 Jamaica Avenue</strong><br>
-                  Queens, NY 11432
-                </div>
-              </div>
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <a href="tel:+17185550126">(718) 555-0126</a>
-              </div>
-              <div class="location-info-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div>
-                  <strong>Hours:</strong><br>
-                  Mon-Sat: 10AM - 11PM<br>
-                  Sun: 11AM - 10PM
-                </div>
-              </div>
-            </div>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
-              <span class="menu-tag" style="background: var(--primary); color: white;">Dine-In</span>
-              <span class="menu-tag" style="background: var(--secondary); color: var(--dark);">Takeout</span>
-              <span class="menu-tag" style="background: #10B981; color: white;">Delivery</span>
-              <span class="menu-tag" style="background: #8B5CF6; color: white;">Drive-Thru</span>
-            </div>
-            <div class="location-card-actions">
-              <a href="order.html?location=queens" class="btn btn-primary btn-sm">Order Now</a>
-              <button class="btn btn-secondary btn-sm get-directions-btn" data-address="321 Jamaica Avenue, Queens, NY 11432">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-                Directions
-              </button>
-            </div>
-          </div>
-        </div>
-
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container py-16">
+      <h2 class="reveal">Can't Visit? Order Delivery!</h2>
+      <p class="reveal">Get your favorites delivered right to your door</p>
+      <div class="flex justify-center gap-4 flex-wrap reveal">
+        <a href="order.html" class="btn btn-dark btn-lg">Order Online</a>
+        <a href="tel:+12125550123" class="btn btn-secondary btn-lg">Call to Order</a>
       </div>
     </div>
   </section>
@@ -287,7 +98,7 @@
             <div class="logo-icon">🐟</div>
             <span>MFC</span>
           </a>
-          <p>Manhattan Fish & Chicken - Your neighborhood destination for the best fried chicken, fresh fish, and seafood since 2009.</p>
+          <p>Manhattan Fish & Chicken - Your neighborhood destination for the best fried chicken, fresh fish, and seafood.</p>
           <div class="footer-social">
             <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -333,11 +144,13 @@
     </div>
   </footer>
 
+  <!-- Floating Order Button -->
   <a href="order.html" class="floating-order-btn btn btn-primary">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
     Order Now
   </a>
 
+  <!-- Scripts -->
   <script src="js/main.js"></script>
   <script src="js/locations.js"></script>
 </body>

@@ -3,20 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shop fresh fish, seafood, poultry, and groceries at Manhattan Fish & Chicken Market. Quality meats, whole fish, shrimp, crab, and more at great prices.">
-
-  <!-- Open Graph -->
+  <meta name="description" content="Shop fresh fish, seafood, poultry, and groceries at Manhattan Fish & Chicken Market. Quality products at great prices.">
   <meta property="og:title" content="Fresh Market - Manhattan Fish & Chicken">
-  <meta property="og:description" content="Shop fresh fish, seafood, poultry, and groceries. Quality meats and seafood at great prices.">
+  <meta property="og:description" content="Fresh fish, seafood, poultry, and groceries. Quality you can trust.">
   <meta property="og:type" content="website">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
-
   <title>Fresh Market | Manhattan Fish & Chicken</title>
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .market-item {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .market-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    .market-item-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .market-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .market-badge {
+      position: absolute;
+      top: var(--space-3);
+      right: var(--space-3);
+      background: var(--primary);
+      color: white;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    .market-item-content {
+      padding: var(--space-5);
+    }
+    .market-item-name {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    .market-item-description {
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-4);
+    }
+    .market-item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .market-item-price {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .market-item-unit {
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+    .market-tabs {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: var(--space-8);
+    }
+    .market-tab {
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      background: var(--gray-100);
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .market-tab:hover {
+      background: var(--gray-200);
+    }
+    .market-tab.active {
+      background: var(--primary);
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -47,7 +125,6 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
   <div class="mobile-menu">
     <a href="index.html">Home</a>
     <a href="menu.html">Menu</a>
@@ -62,7 +139,7 @@
   <header class="page-header">
     <div class="container">
       <h1 class="reveal">Fresh Market</h1>
-      <p class="reveal">Shop our selection of fresh fish, seafood, poultry, and groceries. Quality you can taste.</p>
+      <p class="reveal">Quality fish, seafood, poultry, and groceries at great prices</p>
       <nav class="breadcrumb reveal">
         <a href="index.html">Home</a>
         <span>/</span>
@@ -71,424 +148,64 @@
     </div>
   </header>
 
-  <!-- Freshness Banner -->
-  <div class="fresh-banner">
-    <p>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      Fresh Daily Delivery - Quality Guaranteed - Call for Bulk Orders
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-    </p>
-  </div>
-
-  <!-- Fresh Fish Section -->
+  <!-- Market Section -->
   <section class="section">
     <div class="container">
-      <div class="section-header reveal">
-        <h2>Fresh Fish</h2>
-        <p>Caught fresh and delivered daily to our market</p>
+      <!-- Category Tabs -->
+      <div class="market-tabs reveal">
+        <button class="market-tab active" data-category="all">All Products</button>
+        <button class="market-tab" data-category="fish">Fish</button>
+        <button class="market-tab" data-category="seafood">Seafood</button>
+        <button class="market-tab" data-category="poultry">Poultry</button>
+        <button class="market-tab" data-category="groceries">Groceries</button>
       </div>
-      <div class="grid grid-4 stagger-children">
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" alt="Whole Tilapia" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Whole Tilapia</h4>
-            <p class="card-description">Fresh farm-raised tilapia, cleaned and scaled</p>
-            <div class="card-price">$5.99 <span>/ lb</span></div>
-          </div>
-        </div>
 
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" alt="Red Snapper" loading="lazy">
-            <span class="card-badge">Popular</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Red Snapper</h4>
-            <p class="card-description">Wild-caught red snapper, whole or filleted</p>
-            <div class="card-price">$12.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" alt="Salmon Fillet" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Salmon Fillet</h4>
-            <p class="card-description">Fresh Atlantic salmon, skin-on fillets</p>
-            <div class="card-price">$14.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" alt="Whiting" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Fresh Whiting</h4>
-            <p class="card-description">Cleaned whiting fish, perfect for frying</p>
-            <div class="card-price">$4.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" alt="Catfish" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Catfish Fillets</h4>
-            <p class="card-description">Farm-raised catfish, boneless fillets</p>
-            <div class="card-price">$7.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" alt="Porgy" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Whole Porgy</h4>
-            <p class="card-description">Fresh porgy, cleaned and ready to cook</p>
-            <div class="card-price">$6.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" alt="Croaker" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Croaker Fish</h4>
-            <p class="card-description">Wild-caught croaker, cleaned whole</p>
-            <div class="card-price">$5.49 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=400&q=80" alt="Kingfish" loading="lazy">
-            <span class="card-badge">Premium</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Kingfish Steaks</h4>
-            <p class="card-description">Fresh kingfish, cut into steaks</p>
-            <div class="card-price">$11.99 <span>/ lb</span></div>
-          </div>
-        </div>
+      <!-- Loading State -->
+      <div id="market-loading" style="text-align: center; padding: var(--space-12);">
+        <div class="loading-spinner"></div>
+        <p>Loading products...</p>
       </div>
+
+      <!-- Market Grid (populated by JS) -->
+      <div id="market-grid" class="grid" style="gap: var(--space-6);"></div>
     </div>
   </section>
 
-  <!-- Seafood Section -->
-  <section class="section bg-light">
+  <!-- Fresh Guarantee -->
+  <section class="section" style="background: var(--gray-50);">
     <div class="container">
-      <div class="section-header reveal">
-        <h2>Seafood</h2>
-        <p>Premium shellfish and seafood selection</p>
+      <div class="text-center reveal">
+        <h2>Our Freshness Guarantee</h2>
+        <p style="max-width: 600px; margin: 0 auto var(--space-8);">We source the freshest fish and seafood daily. If you're not 100% satisfied, we'll make it right.</p>
       </div>
-      <div class="grid grid-4 stagger-children">
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=400&q=80" alt="Jumbo Shrimp" loading="lazy">
-            <span class="card-badge">Best Seller</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Jumbo Shrimp</h4>
-            <p class="card-description">16/20 count, peeled & deveined</p>
-            <div class="card-price">$12.99 <span>/ lb</span></div>
-          </div>
+      <div class="grid grid-3" style="gap: var(--space-6);">
+        <div class="text-center reveal">
+          <div style="font-size: 3rem; margin-bottom: var(--space-4);">🌊</div>
+          <h4>Daily Delivery</h4>
+          <p style="color: var(--text-secondary);">Fresh seafood delivered to our market every day</p>
         </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=400&q=80" alt="Medium Shrimp" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Medium Shrimp</h4>
-            <p class="card-description">31/40 count, shell-on or peeled</p>
-            <div class="card-price">$8.99 <span>/ lb</span></div>
-          </div>
+        <div class="text-center reveal">
+          <div style="font-size: 3rem; margin-bottom: var(--space-4);">✅</div>
+          <h4>Quality Checked</h4>
+          <p style="color: var(--text-secondary);">Every product inspected for quality and freshness</p>
         </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=400&q=80" alt="Snow Crab" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Snow Crab Legs</h4>
-            <p class="card-description">Premium snow crab clusters</p>
-            <div class="card-price">$18.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=400&q=80" alt="Lobster Tail" loading="lazy">
-            <span class="card-badge">Premium</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Lobster Tails</h4>
-            <p class="card-description">Cold water lobster tails, 6-8 oz</p>
-            <div class="card-price">$24.99 <span>/ each</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=400&q=80" alt="Blue Crab" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Blue Crabs</h4>
-            <p class="card-description">Live blue crabs, seasonal</p>
-            <div class="card-price">$9.99 <span>/ dozen</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=400&q=80" alt="Clams" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Little Neck Clams</h4>
-            <p class="card-description">Fresh clams, perfect for steaming</p>
-            <div class="card-price">$8.99 <span>/ dozen</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=400&q=80" alt="Mussels" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Fresh Mussels</h4>
-            <p class="card-description">PEI mussels, cleaned and ready</p>
-            <div class="card-price">$6.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=400&q=80" alt="Scallops" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Sea Scallops</h4>
-            <p class="card-description">Dry-packed sea scallops, U-10</p>
-            <div class="card-price">$19.99 <span>/ lb</span></div>
-          </div>
+        <div class="text-center reveal">
+          <div style="font-size: 3rem; margin-bottom: var(--space-4);">🏆</div>
+          <h4>Best Prices</h4>
+          <p style="color: var(--text-secondary);">Competitive prices on premium products</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Poultry Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Fresh Poultry</h2>
-        <p>Quality chicken and poultry, cut fresh daily</p>
-      </div>
-      <div class="grid grid-4 stagger-children">
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80" alt="Whole Chicken" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Whole Chicken</h4>
-            <p class="card-description">Fresh whole chicken, 3-4 lbs</p>
-            <div class="card-price">$2.49 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80" alt="Chicken Breast" loading="lazy">
-            <span class="card-badge">Popular</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Chicken Breast</h4>
-            <p class="card-description">Boneless, skinless chicken breast</p>
-            <div class="card-price">$4.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80" alt="Chicken Wings" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Chicken Wings</h4>
-            <p class="card-description">Party wings, fresh cut</p>
-            <div class="card-price">$3.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80" alt="Chicken Thighs" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Chicken Thighs</h4>
-            <p class="card-description">Bone-in thighs, skin-on</p>
-            <div class="card-price">$2.99 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80" alt="Drumsticks" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Drumsticks</h4>
-            <p class="card-description">Fresh chicken drumsticks</p>
-            <div class="card-price">$2.49 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80" alt="Ground Chicken" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Ground Chicken</h4>
-            <p class="card-description">Fresh ground chicken, lean</p>
-            <div class="card-price">$5.49 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80" alt="Turkey Wings" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Turkey Wings</h4>
-            <p class="card-description">Fresh turkey wings</p>
-            <div class="card-price">$3.49 <span>/ lb</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=400&q=80" alt="Cornish Hen" loading="lazy">
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Cornish Hens</h4>
-            <p class="card-description">Whole Cornish game hens</p>
-            <div class="card-price">$6.99 <span>/ each</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Groceries Section -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Groceries & Seasonings</h2>
-        <p>Everything you need to complete your meal</p>
-      </div>
-      <div class="grid grid-4 stagger-children">
-        <div class="card hover-lift">
-          <div class="card-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 4rem;">🧂</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Fish Fry Seasoning</h4>
-            <p class="card-description">Our signature fish fry blend</p>
-            <div class="card-price">$4.99 <span>/ jar</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 4rem;">🌶️</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Hot Sauce</h4>
-            <p class="card-description">House-made hot sauce</p>
-            <div class="card-price">$3.99 <span>/ bottle</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 4rem;">🍋</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Lemon Pepper</h4>
-            <p class="card-description">Premium lemon pepper blend</p>
-            <div class="card-price">$4.49 <span>/ jar</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 4rem;">🧈</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Garlic Butter</h4>
-            <p class="card-description">Pre-made garlic butter spread</p>
-            <div class="card-price">$5.99 <span>/ tub</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 4rem;">🍚</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Long Grain Rice</h4>
-            <p class="card-description">Premium white rice, 5lb bag</p>
-            <div class="card-price">$6.99 <span>/ bag</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 4rem;">🥫</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Tartar Sauce</h4>
-            <p class="card-description">Creamy tartar sauce</p>
-            <div class="card-price">$3.49 <span>/ jar</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 4rem;">🫒</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Vegetable Oil</h4>
-            <p class="card-description">For frying, 1 gallon</p>
-            <div class="card-price">$8.99 <span>/ gal</span></div>
-          </div>
-        </div>
-
-        <div class="card hover-lift">
-          <div class="card-image" style="background: var(--secondary); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 4rem;">🌽</span>
-          </div>
-          <div class="card-content">
-            <h4 class="card-title">Cornmeal</h4>
-            <p class="card-description">Yellow cornmeal, 2lb bag</p>
-            <div class="card-price">$3.99 <span>/ bag</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bulk Orders CTA -->
+  <!-- CTA Section -->
   <section class="section cta-section">
     <div class="container py-16">
-      <h2 class="reveal">Need Bulk Orders?</h2>
-      <p class="reveal">Planning an event or party? We offer special pricing on large orders. Call us for a custom quote!</p>
+      <h2 class="reveal">Need a Large Order?</h2>
+      <p class="reveal">Call us for bulk orders, special requests, and wholesale pricing</p>
       <div class="flex justify-center gap-4 flex-wrap reveal">
         <a href="tel:+12125550123" class="btn btn-dark btn-lg">Call (212) 555-0123</a>
-        <a href="contact.html" class="btn btn-secondary btn-lg">Request Quote</a>
+        <a href="locations.html" class="btn btn-secondary btn-lg">Visit Our Market</a>
       </div>
     </div>
   </section>
@@ -502,7 +219,7 @@
             <div class="logo-icon">🐟</div>
             <span>MFC</span>
           </a>
-          <p>Manhattan Fish & Chicken - Your neighborhood destination for the best fried chicken, fresh fish, and seafood since 2009.</p>
+          <p>Manhattan Fish & Chicken - Your neighborhood destination for the best fried chicken, fresh fish, and seafood.</p>
           <div class="footer-social">
             <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -519,10 +236,11 @@
           </div>
         </div>
         <div>
-          <h4 class="footer-heading">Market Hours</h4>
+          <h4 class="footer-heading">Hours</h4>
           <div class="footer-links">
-            <span>Mon - Sat: 9AM - 8PM</span>
-            <span>Sunday: 10AM - 6PM</span>
+            <span>Mon - Thu: 10AM - 10PM</span>
+            <span>Fri - Sat: 10AM - 12AM</span>
+            <span>Sunday: 11AM - 10PM</span>
           </div>
         </div>
         <div>
@@ -553,6 +271,8 @@
     Order Now
   </a>
 
+  <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script src="js/market.js"></script>
 </body>
 </html>

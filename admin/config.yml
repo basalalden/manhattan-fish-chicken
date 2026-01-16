@@ -6,41 +6,56 @@ media_folder: "assets/images"
 public_folder: "/assets/images"
 
 collections:
-  - name: "menu"
-    label: "Menu Items"
-    folder: "_data/menu"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Category", name: "category", widget: "select", options: ["chicken", "fish", "seafood", "combos", "sides", "drinks"]}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Price", name: "price", widget: "string"}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Badge", name: "badge", widget: "string", required: false}
+  - name: "data"
+    label: "Site Data"
+    files:
+      - label: "Menu Items"
+        name: "menu"
+        file: "_data/menu.json"
+        fields:
+          - label: "Menu Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Category", name: "category", widget: "select", options: ["chicken", "fish", "seafood", "combos", "sides", "drinks"]}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Price", name: "price", widget: "string"}
+              - {label: "Image URL", name: "image", widget: "string", required: false}
+              - {label: "Badge", name: "badge", widget: "string", required: false, hint: "e.g., Best Seller, Popular, New"}
 
-  - name: "locations"
-    label: "Locations"
-    folder: "_data/locations"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Address", name: "address", widget: "string"}
-      - {label: "City", name: "city", widget: "string"}
-      - {label: "Phone", name: "phone", widget: "string"}
-      - {label: "Hours - Weekday", name: "hours_weekday", widget: "string"}
-      - {label: "Hours - Weekend", name: "hours_weekend", widget: "string"}
+      - label: "Locations"
+        name: "locations"
+        file: "_data/locations.json"
+        fields:
+          - label: "Locations"
+            name: "locations"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Address", name: "address", widget: "string"}
+              - {label: "City", name: "city", widget: "string"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Hours - Weekday", name: "hours_weekday", widget: "string"}
+              - {label: "Hours - Weekend", name: "hours_weekend", widget: "string"}
+              - {label: "Hours - Sunday", name: "hours_sunday", widget: "string"}
+              - {label: "Features", name: "features", widget: "list", default: ["Takeout"]}
+              - {label: "DoorDash Link", name: "doordash", widget: "string", required: false}
+              - {label: "UberEats Link", name: "ubereats", widget: "string", required: false}
+              - {label: "Grubhub Link", name: "grubhub", widget: "string", required: false}
 
-  - name: "market"
-    label: "Market Products"
-    folder: "_data/market"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Category", name: "category", widget: "select", options: ["fish", "seafood", "poultry", "groceries"]}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Price", name: "price", widget: "string"}
-      - {label: "Unit", name: "unit", widget: "string"}
-      - {label: "Image", name: "image", widget: "image", required: false}
+      - label: "Market Products"
+        name: "market"
+        file: "_data/market.json"
+        fields:
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Category", name: "category", widget: "select", options: ["fish", "seafood", "poultry", "groceries"]}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Price", name: "price", widget: "string"}
+              - {label: "Unit", name: "unit", widget: "string", hint: "e.g., / lb, / each, / dozen"}
+              - {label: "Image URL", name: "image", widget: "string", required: false}
+              - {label: "Badge", name: "badge", widget: "string", required: false}

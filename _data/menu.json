@@ -1,0 +1,116 @@
+{
+  "items": [
+    {
+      "name": "Crispy Fried Chicken",
+      "category": "chicken",
+      "description": "Our signature golden-fried chicken, seasoned to perfection with our secret blend of spices.",
+      "price": "8.99",
+      "image": "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?auto=format&fit=crop&w=600&q=80",
+      "badge": "Best Seller"
+    },
+    {
+      "name": "Chicken Wings (10pc)",
+      "category": "chicken",
+      "description": "Crispy fried wings tossed in your choice of sauce: Buffalo, BBQ, Honey Garlic, or Lemon Pepper.",
+      "price": "12.99",
+      "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=600&q=80",
+      "badge": "Popular"
+    },
+    {
+      "name": "Chicken Tenders",
+      "category": "chicken",
+      "description": "Hand-breaded chicken tenders served with your choice of dipping sauce.",
+      "price": "9.99",
+      "image": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Whiting Fish",
+      "category": "fish",
+      "description": "Fresh whiting fillets, lightly seasoned and fried to golden perfection.",
+      "price": "7.99",
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+      "badge": "Best Seller"
+    },
+    {
+      "name": "Catfish Fillet",
+      "category": "fish",
+      "description": "Southern-style catfish fillet with cornmeal breading.",
+      "price": "10.99",
+      "image": "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Tilapia",
+      "category": "fish",
+      "description": "Mild and flaky tilapia fillet, perfectly seasoned and fried.",
+      "price": "9.99",
+      "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Jumbo Shrimp (6pc)",
+      "category": "seafood",
+      "description": "Large butterflied shrimp, golden fried and served with cocktail sauce.",
+      "price": "11.99",
+      "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80",
+      "badge": "Popular"
+    },
+    {
+      "name": "Seafood Platter",
+      "category": "seafood",
+      "description": "A feast of fried shrimp, fish fillet, crab cake, and calamari rings.",
+      "price": "18.99",
+      "image": "https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?auto=format&fit=crop&w=600&q=80",
+      "badge": "Chef's Special"
+    },
+    {
+      "name": "Fish & Chicken Combo",
+      "category": "combos",
+      "description": "2 pieces of whiting fish and 2 pieces of fried chicken with fries and coleslaw.",
+      "price": "13.99",
+      "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=600&q=80",
+      "badge": "Best Value"
+    },
+    {
+      "name": "Family Bucket",
+      "category": "combos",
+      "description": "8 pieces of chicken, 4 fish fillets, large fries, coleslaw, and 4 drinks.",
+      "price": "39.99",
+      "image": "https://images.unsplash.com/photo-1585703900468-13c7a978ad86?auto=format&fit=crop&w=600&q=80",
+      "badge": "Family Size"
+    },
+    {
+      "name": "French Fries",
+      "category": "sides",
+      "description": "Crispy golden fries, seasoned to perfection.",
+      "price": "3.99",
+      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Coleslaw",
+      "category": "sides",
+      "description": "Creamy, fresh-made coleslaw with a hint of sweetness.",
+      "price": "2.99",
+      "image": "https://images.unsplash.com/photo-1625938145744-533e82abfeb9?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Mac & Cheese",
+      "category": "sides",
+      "description": "Creamy, cheesy macaroni made fresh daily.",
+      "price": "4.99",
+      "image": "https://images.unsplash.com/photo-1543339494-b4cd4f7ba686?auto=format&fit=crop&w=600&q=80",
+      "badge": "Popular"
+    },
+    {
+      "name": "Fountain Drinks",
+      "category": "drinks",
+      "description": "Coca-Cola, Sprite, Fanta, Lemonade, or Iced Tea.",
+      "price": "1.99",
+      "image": "https://images.unsplash.com/photo-1581636625402-2c1a4df3b22e?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    }
+  ]
+}

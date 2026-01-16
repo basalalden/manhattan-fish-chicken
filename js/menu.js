@@ -1,21 +1,90 @@
 /* Manhattan Fish & Chicken - Menu Page JavaScript */
 
+let menuItems = [];
+
 document.addEventListener('DOMContentLoaded', function() {
-  initMenuTabs();
-  initMenuSearch();
+  loadMenuData();
 });
+
+/* ==================== Load Menu Data ==================== */
+
+async function loadMenuData() {
+  const loading = document.getElementById('menu-loading');
+  const grid = document.getElementById('menu-grid');
+
+  try {
+    const response = await fetch('/_data/menu.json');
+    const data = await response.json();
+    menuItems = data.items || [];
+
+    // Hide loading, render menu
+    if (loading) loading.style.display = 'none';
+    renderMenuItems(menuItems);
+
+    // Initialize tabs and search after rendering
+    initMenuTabs();
+    initMenuSearch();
+    cart.load();
+
+  } catch (error) {
+    console.error('Error loading menu:', error);
+    if (loading) loading.innerHTML = '<p>Error loading menu. Please refresh the page.</p>';
+  }
+}
+
+/* ==================== Render Menu Items ==================== */
+
+function renderMenuItems(items) {
+  const grid = document.getElementById('menu-grid');
+  if (!grid) return;
+
+  grid.innerHTML = items.map(item => `
+    <div class="menu-item" data-category="${item.category}">
+      <div class="menu-item-image">
+        ${item.image
+          ? `<img src="${item.image}" alt="${item.name}" loading="lazy">`
+          : `<div style="background: var(--secondary); display: flex; align-items: center; justify-content: center; height: 100%;"><span style="font-size: 2rem;">${getCategoryEmoji(item.category)}</span></div>`
+        }
+      </div>
+      <div class="menu-item-content">
+        <div class="menu-item-header">
+          <h4 class="menu-item-name">${item.name}</h4>
+          <span class="menu-item-price">$${item.price}</span>
+        </div>
+        <p class="menu-item-description">${item.description}</p>
+        ${item.badge ? `
+          <div class="menu-item-tags">
+            <span class="menu-tag" style="background: var(--primary-light); color: var(--primary);">${item.badge}</span>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function getCategoryEmoji(category) {
+  const emojis = {
+    chicken: '🍗',
+    fish: '🐟',
+    seafood: '🦐',
+    combos: '🍱',
+    sides: '🍟',
+    drinks: '🥤'
+  };
+  return emojis[category] || '🍽️';
+}
 
 /* ==================== Menu Tabs ==================== */
 
 function initMenuTabs() {
   const tabs = document.querySelectorAll('.menu-tab');
-  const items = document.querySelectorAll('.menu-item');
 
-  if (!tabs.length || !items.length) return;
+  if (!tabs.length) return;
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const category = tab.dataset.category;
+      const items = document.querySelectorAll('.menu-item');
 
       // Update active tab
       tabs.forEach(t => t.classList.remove('active'));
@@ -60,13 +129,13 @@ function initMenuTabs() {
 
 function initMenuSearch() {
   const searchInput = document.getElementById('menu-search');
-  const items = document.querySelectorAll('.menu-item');
   const noResults = document.getElementById('no-results');
 
-  if (!searchInput || !items.length) return;
+  if (!searchInput) return;
 
   searchInput.addEventListener('input', MFC.debounce((e) => {
     const query = e.target.value.toLowerCase().trim();
+    const items = document.querySelectorAll('.menu-item');
     let visibleCount = 0;
 
     items.forEach(item => {
@@ -177,23 +246,6 @@ const cart = {
     this.updateUI();
   }
 };
-
-// Initialize cart on page load
-document.addEventListener('DOMContentLoaded', () => {
-  cart.load();
-
-  // Add click handlers for "Add to Order" buttons
-  document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = {
-        id: btn.dataset.id,
-        name: btn.dataset.name,
-        price: parseFloat(btn.dataset.price)
-      };
-      cart.add(item);
-    });
-  });
-});
 
 // Export cart for use in other pages
 window.MFCCart = cart;

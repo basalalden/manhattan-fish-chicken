@@ -1,0 +1,112 @@
+{
+  "products": [
+    {
+      "name": "Whole Tilapia",
+      "category": "fish",
+      "description": "Fresh whole tilapia, cleaned and scaled. Perfect for grilling or frying.",
+      "price": "5.99",
+      "unit": "/ lb",
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+      "badge": "Fresh Daily"
+    },
+    {
+      "name": "Red Snapper",
+      "category": "fish",
+      "description": "Wild-caught red snapper, perfect for Caribbean-style preparations.",
+      "price": "12.99",
+      "unit": "/ lb",
+      "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80",
+      "badge": "Premium"
+    },
+    {
+      "name": "Salmon Fillet",
+      "category": "fish",
+      "description": "Fresh Atlantic salmon fillets, boneless and skinless.",
+      "price": "14.99",
+      "unit": "/ lb",
+      "image": "https://images.unsplash.com/photo-1574781330855-d0db8cc6a79c?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Jumbo Shrimp",
+      "category": "seafood",
+      "description": "Fresh jumbo shrimp, head-on or peeled. Great for grilling or boiling.",
+      "price": "13.99",
+      "unit": "/ lb",
+      "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=600&q=80",
+      "badge": "Popular"
+    },
+    {
+      "name": "Blue Crabs",
+      "category": "seafood",
+      "description": "Live blue crabs, perfect for steaming or making crab boil.",
+      "price": "8.99",
+      "unit": "/ lb",
+      "image": "https://images.unsplash.com/photo-1550747545-c896b68d399d?auto=format&fit=crop&w=600&q=80",
+      "badge": "Seasonal"
+    },
+    {
+      "name": "Lobster Tails",
+      "category": "seafood",
+      "description": "Cold-water lobster tails, perfect for special occasions.",
+      "price": "24.99",
+      "unit": "/ each",
+      "image": "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=600&q=80",
+      "badge": "Premium"
+    },
+    {
+      "name": "Whole Chicken",
+      "category": "poultry",
+      "description": "Fresh whole chicken, perfect for roasting or cutting into parts.",
+      "price": "4.99",
+      "unit": "/ lb",
+      "image": "https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&w=600&q=80",
+      "badge": "Halal"
+    },
+    {
+      "name": "Chicken Wings",
+      "category": "poultry",
+      "description": "Fresh chicken wings, party pack sizes available.",
+      "price": "5.99",
+      "unit": "/ lb",
+      "image": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=600&q=80",
+      "badge": "Best Seller"
+    },
+    {
+      "name": "Chicken Drumsticks",
+      "category": "poultry",
+      "description": "Fresh chicken drumsticks, great for grilling or frying.",
+      "price": "3.99",
+      "unit": "/ lb",
+      "image": "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Rice (25 lb bag)",
+      "category": "groceries",
+      "description": "Long grain white rice, perfect for everyday cooking.",
+      "price": "18.99",
+      "unit": "/ bag",
+      "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Hot Sauce Variety",
+      "category": "groceries",
+      "description": "Selection of Caribbean and American hot sauces.",
+      "price": "4.99",
+      "unit": "/ bottle",
+      "image": "https://images.unsplash.com/photo-1601648764658-cf37e8c89b70?auto=format&fit=crop&w=600&q=80",
+      "badge": ""
+    },
+    {
+      "name": "Plantains",
+      "category": "groceries",
+      "description": "Fresh plantains - green or ripe available.",
+      "price": "0.99",
+      "unit": "/ each",
+      "image": "https://images.unsplash.com/photo-1603052875302-d376b7c0638a?auto=format&fit=crop&w=600&q=80",
+      "badge": "Fresh"
+    }
+  ]
+}
