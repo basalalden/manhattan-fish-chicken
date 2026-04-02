@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Manhattan Fish & Chicken. Get in touch with questions, feedback, catering inquiries, or job applications. We'd love to hear from you!">
+
+  <meta property="og:title" content="Contact Us - Manhattan Fish & Chicken">
+  <meta property="og:description" content="Get in touch with Manhattan Fish & Chicken. Questions, feedback, catering, or careers.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+
+  <title>Contact Us | Manhattan Fish & Chicken</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🐟</div>
+        <span>MFC</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="market.html">Market</a>
+        <a href="locations.html">Locations</a>
+        <a href="order.html">Order</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="order.html" class="btn btn-primary btn-sm md:hidden lg:flex">Order Now</a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="market.html">Market</a>
+    <a href="locations.html">Locations</a>
+    <a href="order.html">Order Online</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="reveal">Contact Us</h1>
+      <p class="reveal">We'd love to hear from you! Get in touch with questions, feedback, or inquiries.</p>
+      <nav class="breadcrumb reveal">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Contact</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2 gap-8">
+
+        <!-- Contact Form -->
+        <div class="reveal-left">
+          <h2 style="margin-bottom: var(--space-6);">Send Us a Message</h2>
+          <form id="contact-form" class="card" style="padding: var(--space-8);">
+            <div class="form-group">
+              <label class="form-label" for="name">Full Name *</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+            </div>
+
+            <div class="grid grid-2" style="gap: var(--space-4);">
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address *</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="(212) 555-0000">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="location">Preferred Location</label>
+              <select id="location" name="location" class="form-select">
+                <option value="">Select a location</option>
+                <option value="harlem">Harlem - 123 W 125th Street</option>
+                <option value="bronx">Bronx - 456 E Fordham Road</option>
+                <option value="brooklyn">Brooklyn - 789 Flatbush Avenue</option>
+                <option value="queens">Queens - 321 Jamaica Avenue</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="subject">Subject *</label>
+              <select id="subject" name="subject" class="form-select" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="feedback">Feedback</option>
+                <option value="catering">Catering Request</option>
+                <option value="bulk">Bulk/Wholesale Order</option>
+                <option value="careers">Job Application</option>
+                <option value="partnership">Partnership Inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Message *</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="How can we help you?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="reveal-right">
+          <h2 style="margin-bottom: var(--space-6);">Get In Touch</h2>
+
+          <!-- Main Contact Info -->
+          <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+            <h4 style="margin-bottom: var(--space-4);">General Inquiries</h4>
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <a href="tel:+12125550123" style="display: flex; align-items: center; gap: var(--space-3); color: var(--text-primary);">
+                <div style="width: 48px; height: 48px; background: var(--primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div style="font-weight: var(--font-semibold);">(212) 555-0123</div>
+                  <div style="font-size: var(--text-sm); color: var(--text-secondary);">Main Line</div>
+                </div>
+              </a>
+
+              <a href="mailto:info@manhattanfc.com" style="display: flex; align-items: center; gap: var(--space-3); color: var(--text-primary);">
+                <div style="width: 48px; height: 48px; background: var(--secondary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div style="font-weight: var(--font-semibold);">info@manhattanfc.com</div>
+                  <div style="font-size: var(--text-sm); color: var(--text-secondary);">Email Us</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Catering -->
+          <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6); border-left: 4px solid var(--primary);">
+            <h4 style="margin-bottom: var(--space-2);">Catering & Events</h4>
+            <p style="color: var(--text-secondary); font-size: var(--text-sm); margin-bottom: var(--space-4);">Planning an event? We offer catering for parties, corporate events, and special occasions.</p>
+            <a href="tel:+12125550199" style="font-weight: var(--font-semibold); color: var(--primary);">(212) 555-0199</a>
+            <span style="color: var(--text-secondary); font-size: var(--text-sm);"> - Catering Line</span>
+          </div>
+
+          <!-- Hours -->
+          <div class="card" style="padding: var(--space-6); margin-bottom: var(--space-6);">
+            <h4 style="margin-bottom: var(--space-4);">Business Hours</h4>
+            <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <div style="display: flex; justify-content: space-between;">
+                <span>Monday - Thursday</span>
+                <span style="font-weight: var(--font-semibold);">10:00 AM - 10:00 PM</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Friday - Saturday</span>
+                <span style="font-weight: var(--font-semibold);">10:00 AM - 12:00 AM</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Sunday</span>
+                <span style="font-weight: var(--font-semibold);">11:00 AM - 10:00 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="card" style="padding: var(--space-6);">
+            <h4 style="margin-bottom: var(--space-4);">Follow Us</h4>
+            <div style="display: flex; gap: var(--space-3);">
+              <a href="#" style="width: 48px; height: 48px; background: var(--gray-100); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; transition: background var(--transition-fast);" aria-label="Facebook">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--dark)"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" style="width: 48px; height: 48px; background: var(--gray-100); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; transition: background var(--transition-fast);" aria-label="Instagram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" style="width: 48px; height: 48px; background: var(--gray-100); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; transition: background var(--transition-fast);" aria-label="Twitter">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--dark)"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+              </a>
+              <a href="#" style="width: 48px; height: 48px; background: var(--gray-100); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; transition: background var(--transition-fast);" aria-label="TikTok">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--dark)"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- All Locations -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Our Locations</h2>
+        <p>Visit any of our 4 NYC locations</p>
+      </div>
+      <div class="grid grid-4 stagger-children">
+        <div class="card" style="padding: var(--space-6);">
+          <h4 style="color: var(--primary); margin-bottom: var(--space-3);">Harlem</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-2);">123 W 125th Street<br>New York, NY 10027</p>
+          <a href="tel:+12125550123" style="font-size: var(--text-sm); color: var(--primary);">(212) 555-0123</a>
+        </div>
+        <div class="card" style="padding: var(--space-6);">
+          <h4 style="color: var(--primary); margin-bottom: var(--space-3);">Bronx</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-2);">456 E Fordham Road<br>Bronx, NY 10458</p>
+          <a href="tel:+17185550124" style="font-size: var(--text-sm); color: var(--primary);">(718) 555-0124</a>
+        </div>
+        <div class="card" style="padding: var(--space-6);">
+          <h4 style="color: var(--primary); margin-bottom: var(--space-3);">Brooklyn</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-2);">789 Flatbush Avenue<br>Brooklyn, NY 11226</p>
+          <a href="tel:+17185550125" style="font-size: var(--text-sm); color: var(--primary);">(718) 555-0125</a>
+        </div>
+        <div class="card" style="padding: var(--space-6);">
+          <h4 style="color: var(--primary); margin-bottom: var(--space-3);">Queens</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-2);">321 Jamaica Avenue<br>Queens, NY 11432</p>
+          <a href="tel:+17185550126" style="font-size: var(--text-sm); color: var(--primary);">(718) 555-0126</a>
+        </div>
+      </div>
+      <div class="text-center mt-8 reveal">
+        <a href="locations.html" class="btn btn-secondary">View All Locations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">🐟</div>
+            <span>MFC</span>
+          </a>
+          <p>Manhattan Fish & Chicken - Your neighborhood destination for the best fried chicken, fresh fish, and seafood since 2009.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="menu.html">Menu</a>
+            <a href="market.html">Market</a>
+            <a href="locations.html">Locations</a>
+            <a href="order.html">Order Online</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Hours</h4>
+          <div class="footer-links">
+            <span>Mon - Thu: 10AM - 10PM</span>
+            <span>Fri - Sat: 10AM - 12AM</span>
+            <span>Sunday: 11AM - 10PM</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>(212) 555-0123</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>info@manhattanfc.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Manhattan Fish & Chicken. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="order.html" class="floating-order-btn btn btn-primary">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    Order Now
+  </a>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Contact form handling
+    document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      // Validate
+      if (!data.name || !data.email || !data.subject || !data.message) {
+        MFC.showToast('Please fill in all required fields', 'error');
+        return;
+      }
+
+      if (!MFC.validateEmail(data.email)) {
+        MFC.showToast('Please enter a valid email address', 'error');
+        return;
+      }
+
+      // Simulate form submission
+      const submitBtn = this.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner" style="width: 20px; height: 20px;"></span> Sending...';
+
+      setTimeout(() => {
+        MFC.showToast('Message sent successfully! We\'ll get back to you soon.', 'success');
+        this.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message`;
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
