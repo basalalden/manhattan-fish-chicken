@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import CallBanner from '@/components/CallBanner'
 import JsonLd from '@/components/JsonLd'
+import { TrackedCallButton, TrackedDirectionsButton } from '@/components/TrackedLinks'
 import { locations, getLocationBySlug } from '@/data/locations'
 
 export async function generateStaticParams() {
@@ -125,15 +126,17 @@ export default async function LocationPage({
             {/* Left Column: Details */}
             <div className="space-y-6">
               {/* Click-to-Call */}
-              <a
-                href={`tel:${location.phoneRaw}`}
+              <TrackedCallButton
+                phone={location.phone}
+                phoneRaw={location.phoneRaw}
+                locationName={location.name}
                 className="flex items-center justify-center gap-3 rounded-xl bg-[#2ABFBF] px-8 py-5 text-xl font-bold text-white shadow-lg transition-all hover:bg-[#229e9e] hover:shadow-xl"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 Call {location.phone}
-              </a>
+              </TrackedCallButton>
 
               {/* Hours */}
               <div className="rounded-xl bg-white p-6 shadow-md">
@@ -217,10 +220,9 @@ export default async function LocationPage({
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.address)}`}
-                target="_blank"
-                rel="noopener noreferrer"
+              <TrackedDirectionsButton
+                address={location.address}
+                locationName={location.name}
                 className="flex items-center justify-center gap-2 rounded-xl border-2 border-[#2ABFBF] bg-white px-6 py-3 font-bold text-[#2ABFBF] transition-colors hover:bg-[#2ABFBF] hover:text-white"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -228,7 +230,7 @@ export default async function LocationPage({
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 Get Directions
-              </a>
+              </TrackedDirectionsButton>
             </div>
           </div>
         </div>

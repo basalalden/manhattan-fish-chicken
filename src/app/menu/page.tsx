@@ -5,6 +5,7 @@ import MenuSection from '@/components/MenuSection'
 import MenuNav from '@/components/MenuNav'
 import CallBanner from '@/components/CallBanner'
 import JsonLd from '@/components/JsonLd'
+import { TrackedMenuPdfLink } from '@/components/TrackedLinks'
 import { menuCategories } from '@/data/menu'
 
 export const metadata: Metadata = {
@@ -114,17 +115,12 @@ export default function MenuPage() {
           <p className="mt-2 text-sm text-[#D4A843]">
             Prices subject to market change. Plus tax.
           </p>
-          <a
-            href="/manhattan-fish-chicken-menu.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#D4A843] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#c0963b]"
-          >
+          <TrackedMenuPdfLink className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#D4A843] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#c0963b]">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             View / Download PDF Menu
-          </a>
+          </TrackedMenuPdfLink>
         </div>
       </header>
 
@@ -218,17 +214,12 @@ export default function MenuPage() {
 
         {/* ── Bottom PDF link ─────────────────────────────── */}
         <div className="mt-10 text-center">
-          <a
-            href="/manhattan-fish-chicken-menu.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#2ABFBF] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#229e9e]"
-          >
+          <TrackedMenuPdfLink className="inline-flex items-center gap-2 rounded-full bg-[#2ABFBF] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#229e9e]">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             View / Download PDF Menu
-          </a>
+          </TrackedMenuPdfLink>
         </div>
       </main>
 

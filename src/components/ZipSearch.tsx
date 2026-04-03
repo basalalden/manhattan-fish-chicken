@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { Location } from '@/data/locations'
+import { trackUseMyLocation } from '@/lib/analytics'
 
 // Approximate distance using Haversine formula
 function getDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
@@ -86,6 +87,7 @@ export default function ZipSearch({ locations, onSort, onReset }: ZipSearchProps
   }
 
   function handleUseMyLocation() {
+    trackUseMyLocation()
     if (!navigator.geolocation) {
       setError('Geolocation not supported on this browser')
       return
