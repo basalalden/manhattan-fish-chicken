@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    other: { "msvalidate.01": "6FA8E5909E9421CA66F9A620157F9FC8" },
+  },
   title: {
     default: "Manhattan Fish & Chicken — Fresh Fish Market & Carry-Out Restaurant | Metro Detroit",
     template: "%s | Manhattan Fish & Chicken",
