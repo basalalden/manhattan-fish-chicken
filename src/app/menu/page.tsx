@@ -128,7 +128,7 @@ export default function MenuPage() {
       <section className="bg-[#F5F0E8] py-10 sm:py-14">
         <div className="mx-auto max-w-5xl px-4">
           <div className="space-y-6">
-            <div className="overflow-hidden rounded-2xl shadow-lg">
+            <TrackedMenuPdfLink className="block overflow-hidden rounded-2xl shadow-lg transition-all hover:shadow-2xl">
               <Image
                 src="/menu-page-1.jpg"
                 alt="Manhattan Fish & Chicken Menu — Front: Locations, Specials, Lunch & Dinner Deals"
@@ -137,8 +137,8 @@ export default function MenuPage() {
                 className="w-full h-auto"
                 priority
               />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
+            </TrackedMenuPdfLink>
+            <TrackedMenuPdfLink className="block overflow-hidden rounded-2xl shadow-lg transition-all hover:shadow-2xl">
               <Image
                 src="/menu-page-2.jpg"
                 alt="Manhattan Fish & Chicken Menu — Back: Fish Plates, Chicken Wings, Shrimp, Sides, Appetizers"
@@ -146,7 +146,7 @@ export default function MenuPage() {
                 height={2798}
                 className="w-full h-auto"
               />
-            </div>
+            </TrackedMenuPdfLink>
           </div>
         </div>
       </section>
