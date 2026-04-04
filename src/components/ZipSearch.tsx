@@ -154,17 +154,6 @@ export default function ZipSearch({ locations, onSort, onReset }: ZipSearchProps
           Find
         </button>
       </div>
-      <button
-        onClick={handleUseMyLocation}
-        disabled={locating}
-        className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-[#1a1a1a]/10 bg-white px-4 py-3 text-sm font-medium text-[#1a1a1a]/70 transition-colors hover:border-[#2ABFBF] hover:text-[#2ABFBF] disabled:opacity-50"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-        {locating ? 'Finding your location...' : 'Use My Location'}
-      </button>
       {error && (
         <p className="mt-2 text-center text-sm text-red-400">{error}</p>
       )}
