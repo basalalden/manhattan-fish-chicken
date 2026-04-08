@@ -74,7 +74,9 @@ export default function LocationCard({ location }: { location: Location }) {
           </span>
         )}
       </div>
-      <p className="text-sm font-medium text-[#1a1a1a]/50">{location.crossStreets}</p>
+      {location.badge !== 'Coming Soon' && (
+        <p className="text-sm font-medium text-[#1a1a1a]/50">{location.crossStreets}</p>
+      )}
 
       {/* Open/Closed indicator */}
       <div className="mt-3 flex items-center gap-2">
