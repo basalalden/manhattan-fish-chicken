@@ -97,7 +97,9 @@ export default function LocationCard({ location }: { location: Location }) {
       </div>
 
       {/* Address */}
-      <p className="mt-3 text-sm text-[#1a1a1a]/70">{location.address}</p>
+      {location.badge !== 'Coming Soon' && (
+        <p className="mt-3 text-sm text-[#1a1a1a]/70">{location.address}</p>
+      )}
 
       {/* Big call button */}
       {location.badge === 'Coming Soon' ? (
