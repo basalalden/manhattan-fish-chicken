@@ -118,12 +118,14 @@ export default function LocationCard({ location }: { location: Location }) {
       )}
 
       {/* Details link */}
-      <Link
-        href={`/locations/${location.slug}`}
-        className="mt-3 block text-center text-xs font-semibold text-[#2ABFBF] transition-colors hover:text-[#229e9e] group-hover:underline"
-      >
-        View Details &rarr;
-      </Link>
+      {location.badge !== 'Coming Soon' && (
+        <Link
+          href={`/locations/${location.slug}`}
+          className="mt-3 block text-center text-xs font-semibold text-[#2ABFBF] transition-colors hover:text-[#229e9e] group-hover:underline"
+        >
+          View Details &rarr;
+        </Link>
+      )}
     </div>
   );
 }
