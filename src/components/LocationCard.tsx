@@ -78,13 +78,22 @@ export default function LocationCard({ location }: { location: Location }) {
 
       {/* Open/Closed indicator */}
       <div className="mt-3 flex items-center gap-2">
-        <span className={`h-2 w-2 rounded-full ${isOpen ? 'bg-green-500' : 'bg-red-400'}`} />
-        <span className={`text-xs font-semibold ${isOpen ? 'text-green-600' : 'text-red-400'}`}>
-          {isOpen ? 'Open Now' : 'Closed'}
-        </span>
-        <span className="text-xs text-[#1a1a1a]/40">
-          — Today: {todayHours}
-        </span>
+        {location.badge === 'Coming Soon' ? (
+          <>
+            <span className="h-2 w-2 rounded-full bg-[#D4A843]" />
+            <span className="text-xs font-semibold text-[#D4A843]">Coming Soon</span>
+          </>
+        ) : (
+          <>
+            <span className={`h-2 w-2 rounded-full ${isOpen ? 'bg-green-500' : 'bg-red-400'}`} />
+            <span className={`text-xs font-semibold ${isOpen ? 'text-green-600' : 'text-red-400'}`}>
+              {isOpen ? 'Open Now' : 'Closed'}
+            </span>
+            <span className="text-xs text-[#1a1a1a]/40">
+              — Today: {todayHours}
+            </span>
+          </>
+        )}
       </div>
 
       {/* Address */}
