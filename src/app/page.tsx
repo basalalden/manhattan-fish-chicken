@@ -9,7 +9,7 @@ const jsonLdData = {
   "@type": "LocalBusiness",
   name: "Manhattan Fish & Chicken",
   description:
-    "Fresh fish, poultry and seafood market serving the Detroit metro area — plus hot, made-to-order meals. Fresh fish, chicken, shrimp, dairy, grains, bread, and frozen vegetables & fruits.",
+    "Fresh fish, poultry and seafood market serving the Detroit metro area. Buy it raw or we'll fry it for you. Fresh fish, chicken, shrimp, dairy, grains, bread, and frozen vegetables & fruits.",
   servesCuisine: ["Seafood", "American", "Soul Food"],
   url: "https://www.manhattanchicken.com",
   numberOfLocations: 7,
@@ -67,7 +67,7 @@ export default function Home() {
           </p>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-white/75 sm:text-lg">
-            Fresh fish, poultry &amp; seafood — plus hot carry-out favorites.
+            Fresh fish, poultry &amp; seafood — buy it raw or we&apos;ll fry it for you.
             Serving the Detroit metro area from 7 locations.
           </p>
 
@@ -116,7 +116,7 @@ export default function Home() {
               Fresh Fish, Poultry &amp; Seafood Market
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-[#1a1a1a]/60">
-              Two experiences under one roof — shop for fresh ingredients or order hot, made-to-order meals. Open every day, including all holidays.
+              Buy it raw or we&apos;ll fry it for you — fresh fish, poultry, seafood, dairy, grains, bread, and frozen veggies &amp; fruits. Open every day, including all holidays.
             </p>
           </div>
 
@@ -143,7 +143,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Hot Food */}
+            {/* We'll Fry It */}
             <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-[#1a1a1a]/5">
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D32F2F] text-white">
@@ -152,10 +152,10 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a1a]">Hot & Ready</h3>
+                <h3 className="text-xl font-bold text-[#1a1a1a]">We&apos;ll Fry It For You</h3>
               </div>
               <p className="text-[#1a1a1a]/70">
-                Made-to-order fish plates, chicken wings, shrimp, family meals, combos, and more. Call ahead or walk in.
+                Buy it raw or have us fry it up fresh for a small fee. Fish plates, chicken wings, shrimp, family meals &amp; more.
               </p>
               <Link
                 href="/menu"
