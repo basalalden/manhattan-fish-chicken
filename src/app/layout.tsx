@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     other: { "msvalidate.01": "6FA8E5909E9421CA66F9A620157F9FC8" },
   },
   title: {
-    default: "Manhattan Fish & Chicken — Fresh Fish, Poultry & Seafood Market | Metro Detroit",
+    default: "Manhattan Fish & Chicken — Fresh Fish, Poultry & Seafood Market with Hot Food | Metro Detroit",
     template: "%s | Manhattan Fish & Chicken",
   },
   description:
-    "Manhattan Fish & Chicken: Fresh fish, poultry & seafood market with 7 locations in Metro Detroit. Fresh fish, chicken, shrimp, family meals & more. Open daily including all holidays!",
+    "Manhattan Fish & Chicken: Fresh fish, poultry & seafood market — plus hot, made-to-order meals. 7 locations in Metro Detroit. Open daily including all holidays!",
   keywords: [
     "Manhattan Fish and Chicken",
     "fish market Detroit",

@@ -24,7 +24,7 @@ export default function Footer() {
               </p>
             </div>
             <p className="mt-3 text-sm text-white/60">
-              Fresh Fish, Poultry & Seafood Market
+              Fresh Fish, Poultry & Seafood Market — Plus Hot Food
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#2ABFBF]/15 px-3 py-1.5 text-xs font-semibold text-[#2ABFBF]">
               Open on All Holidays!

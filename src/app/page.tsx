@@ -9,7 +9,7 @@ const jsonLdData = {
   "@type": "LocalBusiness",
   name: "Manhattan Fish & Chicken",
   description:
-    "Fresh fish, poultry and seafood market serving the Detroit metro area. Fresh fish, chicken, shrimp, dairy, grains, bread, and frozen vegetables & fruits.",
+    "Fresh fish, poultry and seafood market serving the Detroit metro area — plus hot, made-to-order meals. Fresh fish, chicken, shrimp, dairy, grains, bread, and frozen vegetables & fruits.",
   servesCuisine: ["Seafood", "American", "Soul Food"],
   url: "https://www.manhattanchicken.com",
   numberOfLocations: 7,
