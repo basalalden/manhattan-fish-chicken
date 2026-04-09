@@ -6,10 +6,10 @@ import { locations } from "@/data/locations";
 
 const jsonLdData = {
   "@context": "https://schema.org",
-  "@type": "Restaurant",
+  "@type": "LocalBusiness",
   name: "Manhattan Fish & Chicken",
   description:
-    "Fresh fish market and carry-out restaurant serving the Detroit metro area. Fresh fish, poultry, seafood, dairy, grains, bread, and frozen vegetables & fruits. Hot carry-out fish plates, chicken wings, shrimp, and family meals.",
+    "Fresh fish, poultry and seafood market serving the Detroit metro area. Fresh fish, chicken, shrimp, dairy, grains, bread, and frozen vegetables & fruits.",
   servesCuisine: ["Seafood", "American", "Soul Food"],
   url: "https://www.manhattanchicken.com",
   numberOfLocations: 7,
@@ -63,7 +63,7 @@ export default function Home() {
           </h1>
 
           <p className="mt-4 text-lg font-medium text-white/90 sm:text-xl">
-            Fresh Fish Market &amp; Carry-Out Restaurant
+            Fresh Fish, Poultry &amp; Seafood Market
           </p>
 
           <p className="mx-auto mt-4 max-w-2xl text-base text-white/75 sm:text-lg">
@@ -113,7 +113,7 @@ export default function Home() {
               Serving Metro Detroit for 25+ Years
             </p>
             <h2 className="mt-3 text-3xl font-extrabold text-[#1a1a1a] sm:text-4xl">
-              Fresh Market &amp; Carry-Out Restaurant
+              Fresh Fish, Poultry &amp; Seafood Market
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-[#1a1a1a]/60">
               Two experiences under one roof — shop for fresh ingredients or order hot, made-to-order meals. Open every day, including all holidays.
@@ -143,7 +143,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Carry-Out */}
+            {/* Hot Food */}
             <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-[#1a1a1a]/5">
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D32F2F] text-white">
@@ -152,10 +152,10 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a1a]">Carry-Out Restaurant</h3>
+                <h3 className="text-xl font-bold text-[#1a1a1a]">Hot & Ready</h3>
               </div>
               <p className="text-[#1a1a1a]/70">
-                Hot, made-to-order fish plates, chicken wings, shrimp, family meals, combos, and more. Call ahead or walk in.
+                Made-to-order fish plates, chicken wings, shrimp, family meals, combos, and more. Call ahead or walk in.
               </p>
               <Link
                 href="/menu"

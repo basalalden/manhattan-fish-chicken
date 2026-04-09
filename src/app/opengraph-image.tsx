@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const alt =
-  'Manhattan Fish & Chicken — Fresh Fish Market & Carry-Out Restaurant'
+  'Manhattan Fish & Chicken — Fresh Fish, Poultry & Seafood Market'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -57,7 +57,7 @@ export default async function Image() {
             marginBottom: '48px',
           }}
         >
-          Fresh Fish Market &amp; Carry-Out Restaurant
+          Fresh Fish, Poultry &amp; Seafood Market
         </div>
 
         {/* Bottom accent bar */}

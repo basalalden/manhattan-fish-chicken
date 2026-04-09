@@ -7,10 +7,10 @@ import { locations } from '@/data/locations'
 export const metadata: Metadata = {
   title: 'Locations | Manhattan Fish & Chicken — 7 Locations in Metro Detroit',
   description:
-    'Find a Manhattan Fish & Chicken near you. 7 locations in Roseville, Farmington Hills, Redford, Southfield, Ferndale, Detroit, and Dearborn Heights. Fresh fish market and carry-out restaurant.',
+    'Find a Manhattan Fish & Chicken near you. 7 locations in Roseville, Farmington Hills, Redford, Southfield, Ferndale, Detroit, and Dearborn Heights. Fresh fish, poultry & seafood market.',
   keywords: [
     'Manhattan Fish and Chicken locations',
-    'fish restaurant near me',
+    'fish market near me',
     'Detroit fish market',
     'Metro Detroit seafood',
   ],
@@ -20,7 +20,7 @@ export default function LocationsPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': locations.map((loc) => ({
-      '@type': 'Restaurant',
+      '@type': 'LocalBusiness',
       name: `Manhattan Fish & Chicken — ${loc.name}`,
       telephone: loc.phone,
       address: {

@@ -20,11 +20,11 @@ export async function generateMetadata({
   if (!location) return {}
 
   return {
-    title: `Manhattan Fish & Chicken ${location.name} — Fresh Fish Market & Carry-Out | ${location.city}, MI`,
-    description: `Manhattan Fish & Chicken in ${location.name}. Fresh fish, poultry, seafood market and carry-out restaurant at ${location.address}. Call ${location.phone} to order. Open daily.`,
+    title: `Manhattan Fish & Chicken ${location.name} — Fresh Fish, Poultry & Seafood Market | ${location.city}, MI`,
+    description: `Manhattan Fish & Chicken in ${location.name}. Fresh fish, poultry & seafood market at ${location.address}. Call ${location.phone} to order. Open daily.`,
     keywords: [
       `Manhattan Fish and Chicken ${location.city}`,
-      `fish restaurant ${location.city} MI`,
+      `fish market ${location.city} MI`,
       `seafood ${location.name}`,
       `carry out ${location.city}`,
     ],
@@ -50,9 +50,9 @@ export default async function LocationPage({
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Restaurant',
+    '@type': 'LocalBusiness',
     name: `Manhattan Fish & Chicken — ${location.name}`,
-    description: `Fresh fish market and carry-out restaurant in ${location.city}, MI. Serving fried fish, shrimp, chicken, and more.`,
+    description: `Fresh fish, poultry & seafood market in ${location.city}, MI. Fresh fish, chicken, shrimp, and more.`,
     url: `https://www.manhattanchicken.com/locations/${location.slug}`,
     telephone: location.phone,
     address: {

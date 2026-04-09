@@ -9,13 +9,13 @@ import { TrackedMenuPdfLink } from '@/components/TrackedLinks'
 import { menuCategories } from '@/data/menu'
 
 export const metadata: Metadata = {
-  title: 'Menu | Manhattan Fish & Chicken — Fresh Fish Market & Carry-Out',
+  title: 'Menu | Manhattan Fish & Chicken — Fresh Fish, Poultry & Seafood Market',
   description:
     'Full menu for Manhattan Fish & Chicken. Fresh fish plates, chicken wings, shrimp, family meals, combos, sides, and more. 7 locations in Metro Detroit. Call to order!',
   keywords: [
     'fish menu',
     'chicken menu',
-    'Detroit fish restaurant',
+    'Detroit fish market',
     'carry out menu',
     'fish plates',
     'chicken wings',
@@ -37,7 +37,7 @@ const menuJsonLd = {
   '@type': 'Menu',
   name: 'Manhattan Fish & Chicken Menu',
   description:
-    'Full menu for Manhattan Fish & Chicken fresh fish market and carry-out restaurant',
+    'Full menu for Manhattan Fish & Chicken fresh fish, poultry & seafood market',
   url: 'https://www.manhattanchicken.com/manhattan-fish-chicken-menu.pdf',
   hasMenuSection: [
     {

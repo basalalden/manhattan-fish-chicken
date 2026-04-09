@@ -22,15 +22,15 @@ export const metadata: Metadata = {
     other: { "msvalidate.01": "6FA8E5909E9421CA66F9A620157F9FC8" },
   },
   title: {
-    default: "Manhattan Fish & Chicken — Fresh Fish Market & Carry-Out Restaurant | Metro Detroit",
+    default: "Manhattan Fish & Chicken — Fresh Fish, Poultry & Seafood Market | Metro Detroit",
     template: "%s | Manhattan Fish & Chicken",
   },
   description:
-    "Manhattan Fish & Chicken: Fresh fish market and carry-out restaurant with 7 locations in Metro Detroit. Fresh fish, poultry, seafood, chicken wings, shrimp, family meals & more. Open daily including all holidays!",
+    "Manhattan Fish & Chicken: Fresh fish, poultry & seafood market with 7 locations in Metro Detroit. Fresh fish, chicken, shrimp, family meals & more. Open daily including all holidays!",
   keywords: [
     "Manhattan Fish and Chicken",
     "fish market Detroit",
-    "carry out restaurant Detroit",
+    "fish market Detroit",
     "fresh fish Detroit",
     "chicken wings Detroit",
     "seafood Detroit",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL("https://www.manhattanchicken.com"),
   openGraph: {
-    title: "Manhattan Fish & Chicken — Fresh Fish Market & Carry-Out Restaurant",
+    title: "Manhattan Fish & Chicken — Fresh Fish, Poultry & Seafood Market",
     description:
       "Fresh fish, poultry & seafood market plus hot carry-out favorites. 7 locations across Metro Detroit. Open daily including all holidays!",
     url: "https://www.manhattanchicken.com",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manhattan Fish & Chicken — Fresh Fish Market & Carry-Out",
+    title: "Manhattan Fish & Chicken — Fresh Fish, Poultry & Seafood Market",
     description:
-      "Fresh fish market and carry-out restaurant. 7 Metro Detroit locations. Fish plates, chicken wings, shrimp, family meals & more.",
+      "Fresh fish, poultry & seafood market. 7 Metro Detroit locations. Fish, chicken, shrimp, family meals & more.",
   },
   robots: {
     index: true,
