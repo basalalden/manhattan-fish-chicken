@@ -117,9 +117,7 @@ export const locations: Location[] = [
     phone: "(313) 491-0094",
     phoneRaw: "+13134910094",
     hours: [
-      { days: "Monday–Thursday", open: "10:00 AM", close: "11:00 PM" },
-      { days: "Friday–Saturday", open: "10:00 AM", close: "12:00 AM" },
-      { days: "Sunday", open: "10:00 AM", close: "11:00 PM" },
+      { days: "Monday–Sunday", open: "10:00 AM", close: "11:00 PM" },
     ],
     isNew: false,
     coordinates: { lat: 42.389, lng: -83.114 },
