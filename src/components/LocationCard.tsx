@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { Location } from "@/data/locations";
 import { trackCall } from "@/lib/analytics";
@@ -61,7 +62,11 @@ function parseTime(t: string): number {
 }
 
 export default function LocationCard({ location }: { location: Location }) {
-  const { isOpen, todayHours } = getOpenStatus(location.hours);
+  const [status, setStatus] = useState<{ isOpen: boolean; todayHours: string } | null>(null);
+
+  useEffect(() => {
+    setStatus(getOpenStatus(location.hours));
+  }, [location.hours]);
 
   return (
     <div className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-[#1a1a1a]/5 transition-all duration-300 hover:shadow-lg hover:ring-[#2ABFBF]/30 hover:-translate-y-1">
@@ -79,22 +84,24 @@ export default function LocationCard({ location }: { location: Location }) {
       )}
 
       {/* Open/Closed indicator */}
-      <div className="mt-3 flex items-center gap-2">
+      <div className="mt-3 flex h-5 items-center gap-2">
         {location.badge === 'Coming Soon' ? (
           <>
             <span className="h-2 w-2 rounded-full bg-[#D4A843]" />
             <span className="text-xs font-semibold text-[#D4A843]">Coming Soon</span>
           </>
-        ) : (
+        ) : status ? (
           <>
-            <span className={`h-2 w-2 rounded-full ${isOpen ? 'bg-green-500' : 'bg-red-400'}`} />
-            <span className={`text-xs font-semibold ${isOpen ? 'text-green-600' : 'text-red-400'}`}>
-              {isOpen ? 'Open Now' : 'Closed'}
+            <span className={`h-2 w-2 rounded-full ${status.isOpen ? 'bg-green-500' : 'bg-red-400'}`} />
+            <span className={`text-xs font-semibold ${status.isOpen ? 'text-green-600' : 'text-red-400'}`}>
+              {status.isOpen ? 'Open Now' : 'Closed'}
             </span>
             <span className="text-xs text-[#1a1a1a]/40">
-              — Today: {todayHours}
+              — Today: {status.todayHours}
             </span>
           </>
+        ) : (
+          <span className="text-xs text-[#1a1a1a]/30">Loading hours...</span>
         )}
       </div>
 

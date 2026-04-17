@@ -130,7 +130,7 @@ export default function MenuPage() {
           <div className="space-y-6">
             <TrackedMenuPdfLink className="block overflow-hidden rounded-2xl shadow-lg transition-all hover:shadow-2xl">
               <Image
-                src="/menu-page-1.jpg"
+                src="/menu-page-1.webp"
                 alt="Manhattan Fish & Chicken Menu — Front: Locations, Specials, Lunch & Dinner Deals"
                 width={4608}
                 height={2798}
@@ -140,7 +140,7 @@ export default function MenuPage() {
             </TrackedMenuPdfLink>
             <TrackedMenuPdfLink className="block overflow-hidden rounded-2xl shadow-lg transition-all hover:shadow-2xl">
               <Image
-                src="/menu-page-2.jpg"
+                src="/menu-page-2.webp"
                 alt="Manhattan Fish & Chicken Menu — Back: Fish Plates, Chicken Wings, Shrimp, Sides, Appetizers"
                 width={4608}
                 height={2798}
