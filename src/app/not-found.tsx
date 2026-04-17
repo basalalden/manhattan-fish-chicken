@@ -12,7 +12,7 @@ export default function NotFound() {
         Page Not Found
       </h1>
 
-      <p className="text-lg text-[#1a1a1a]/60 max-w-md mb-10">
+      <p className="text-lg text-[#1a1a1a]/75 max-w-md mb-10">
         The page you&apos;re looking for doesn&apos;t exist or has been moved.
       </p>
 

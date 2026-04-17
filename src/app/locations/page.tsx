@@ -3,6 +3,9 @@ import LocationsGrid from '@/components/LocationsGrid'
 import CallBanner from '@/components/CallBanner'
 import JsonLd from '@/components/JsonLd'
 import { locations } from '@/data/locations'
+import { daysToSchemaDayOfWeek, time12To24 } from '@/lib/hours'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Locations | Manhattan Fish & Chicken — 7 Locations in Metro Detroit',
@@ -19,27 +22,39 @@ export const metadata: Metadata = {
 export default function LocationsPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@graph': locations.map((loc) => ({
-      '@type': 'LocalBusiness',
-      name: `Manhattan Fish & Chicken — ${loc.name}`,
-      telephone: loc.phone,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: loc.address.split(',')[0],
-        addressLocality: loc.city,
-        addressRegion: 'MI',
-        postalCode: loc.zip,
-        addressCountry: 'US',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: loc.coordinates.lat,
-        longitude: loc.coordinates.lng,
-      },
-      url: `https://www.manhattanchicken.com/locations/${loc.slug}`,
-      servesCuisine: ['Seafood', 'American', 'Soul Food'],
-      priceRange: '$$',
-    })),
+    '@graph': locations
+      .filter((loc) => loc.badge !== 'Coming Soon')
+      .map((loc) => ({
+        '@type': 'Restaurant',
+        '@id': `https://www.manhattanchicken.com/locations/${loc.slug}#restaurant`,
+        name: `Manhattan Fish & Chicken — ${loc.name}`,
+        image: 'https://www.manhattanchicken.com/icon-mark.png',
+        telephone: loc.phone,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: loc.address.split(',')[0],
+          addressLocality: loc.city,
+          addressRegion: 'MI',
+          postalCode: loc.zip,
+          addressCountry: 'US',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: loc.coordinates.lat,
+          longitude: loc.coordinates.lng,
+        },
+        url: `https://www.manhattanchicken.com/locations/${loc.slug}`,
+        servesCuisine: ['Seafood', 'American', 'Soul Food'],
+        priceRange: '$$',
+        hasMenu: 'https://www.manhattanchicken.com/menu',
+        acceptsReservations: false,
+        openingHoursSpecification: loc.hours.map((h) => ({
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: daysToSchemaDayOfWeek(h.days),
+          opens: time12To24(h.open),
+          closes: time12To24(h.close),
+        })),
+      })),
   }
 
   return (
@@ -55,7 +70,7 @@ export default function LocationsPage() {
           <p className="mt-4 text-lg text-[#D4A843]">
             7 locations serving Metro Detroit
           </p>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-white/80">
             Open daily including all holidays!
           </p>
         </div>
@@ -74,15 +89,15 @@ export default function LocationsPage() {
           <h2 className="text-2xl font-bold text-[#1a1a1a]">
             Delivery Available
           </h2>
-          <p className="mt-4 text-[#1a1a1a]/70">
+          <p className="mt-4 text-[#1a1a1a]/80">
             Can&apos;t make it in? Order delivery through our partners:
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-lg font-semibold text-[#2ABFBF]">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-lg font-semibold text-[#1FA3A3]">
             <span>DoorDash</span>
-            <span className="text-[#1a1a1a]/20">|</span>
+            <span className="text-[#1a1a1a]/30" aria-hidden="true">|</span>
             <span>UberEats</span>
           </div>
-          <p className="mt-3 text-sm text-[#1a1a1a]/50">
+          <p className="mt-3 text-sm text-[#1a1a1a]/70">
             Availability varies by location. Check each app for details.
           </p>
         </div>

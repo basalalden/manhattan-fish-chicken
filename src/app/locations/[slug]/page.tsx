@@ -5,6 +5,13 @@ import CallBanner from '@/components/CallBanner'
 import JsonLd from '@/components/JsonLd'
 import { TrackedCallButton, TrackedDirectionsButton } from '@/components/TrackedLinks'
 import { locations, getLocationBySlug } from '@/data/locations'
+import {
+  daysToSchemaDayOfWeek,
+  getOpenStatus,
+  time12To24,
+} from '@/lib/hours'
+
+export const revalidate = 60
 
 export async function generateStaticParams() {
   return locations.map((loc) => ({ slug: loc.slug }))
@@ -28,6 +35,9 @@ export async function generateMetadata({
       `seafood ${location.name}`,
       `carry out ${location.city}`,
     ],
+    alternates: {
+      canonical: `https://www.manhattanchicken.com/locations/${location.slug}`,
+    },
     openGraph: {
       title: `Manhattan Fish & Chicken — ${location.name}`,
       description: `Fresh fish market & carry-out at ${location.address}. Call ${location.phone}`,
@@ -45,40 +55,113 @@ export default async function LocationPage({
   const location = getLocationBySlug(slug)
   if (!location) notFound()
 
+  const isComingSoon = location.badge === 'Coming Soon'
   const otherLocations = locations.filter((loc) => loc.slug !== slug)
   const streetAddress = location.address.split(',')[0]
+  const status = isComingSoon ? null : getOpenStatus(location.hours)
+
+  const pageUrl = `https://www.manhattanchicken.com/locations/${location.slug}`
+
+  const faq = [
+    {
+      q: 'Are you open on holidays?',
+      a: 'Yes — our ' + location.name + ' location is open every day of the year, including all major holidays.',
+    },
+    {
+      q: 'Do you deliver?',
+      a: 'Delivery is available through DoorDash and UberEats. Availability may vary by time of day.',
+    },
+    {
+      q: 'Can I buy raw fish and seafood?',
+      a: 'Yes. We are a fresh fish, poultry & seafood market. Buy it raw or we will fry it for you for a small fee.',
+    },
+    {
+      q: 'Do you take reservations?',
+      a: 'No — we are a carry-out and market. Please call ' + location.phone + ' to place an order ahead.',
+    },
+    {
+      q: 'What payment methods do you accept?',
+      a: 'We accept Visa, Mastercard, and American Express.',
+    },
+  ]
+
+  const graph: Record<string, unknown>[] = [
+    {
+      '@type': 'Restaurant',
+      '@id': `${pageUrl}#restaurant`,
+      name: `Manhattan Fish & Chicken — ${location.name}`,
+      description: `Fresh fish, poultry & seafood market in ${location.city}, MI. Buy it raw or we'll fry it for you — fish plates, chicken wings, shrimp, family meals & more.`,
+      url: pageUrl,
+      image: 'https://www.manhattanchicken.com/icon-mark.png',
+      telephone: location.phone,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress,
+        addressLocality: location.city,
+        addressRegion: 'MI',
+        postalCode: location.zip,
+        addressCountry: 'US',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: location.coordinates.lat,
+        longitude: location.coordinates.lng,
+      },
+      openingHoursSpecification: location.hours.map((h) => ({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: daysToSchemaDayOfWeek(h.days),
+        opens: time12To24(h.open),
+        closes: time12To24(h.close),
+      })),
+      servesCuisine: ['Seafood', 'American', 'Soul Food'],
+      hasMenu: 'https://www.manhattanchicken.com/menu',
+      acceptsReservations: false,
+      paymentAccepted: 'Visa, Mastercard, American Express',
+      priceRange: '$$',
+      areaServed: {
+        '@type': 'City',
+        name: location.city,
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://www.manhattanchicken.com',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Locations',
+          item: 'https://www.manhattanchicken.com/locations',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: location.name,
+          item: pageUrl,
+        },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.a,
+        },
+      })),
+    },
+  ]
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: `Manhattan Fish & Chicken — ${location.name}`,
-    description: `Fresh fish, poultry & seafood market in ${location.city}, MI. Fresh fish, chicken, shrimp, and more.`,
-    url: `https://www.manhattanchicken.com/locations/${location.slug}`,
-    telephone: location.phone,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress,
-      addressLocality: location.city,
-      addressRegion: 'MI',
-      postalCode: location.zip,
-      addressCountry: 'US',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: location.coordinates.lat,
-      longitude: location.coordinates.lng,
-    },
-    openingHoursSpecification: location.hours.map((h) => ({
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: h.days,
-      opens: h.open,
-      closes: h.close,
-    })),
-    servesCuisine: ['Seafood', 'American', 'Soul Food'],
-    hasMenu: 'https://www.manhattanchicken.com/menu',
-    acceptsReservations: false,
-    paymentAccepted: 'Visa, Mastercard, American Express',
-    priceRange: '$$',
+    '@graph': graph,
   }
 
   return (
@@ -88,13 +171,13 @@ export default async function LocationPage({
       {/* Breadcrumb */}
       <nav className="bg-[#F5F0E8] px-4 py-3" aria-label="Breadcrumb">
         <div className="mx-auto max-w-6xl">
-          <ol className="flex items-center gap-2 text-sm text-[#1a1a1a]/60">
+          <ol className="flex items-center gap-2 text-sm text-[#1a1a1a]/70">
             <li>
-              <Link href="/" className="hover:text-[#2ABFBF]">Home</Link>
+              <Link href="/" className="hover:text-[#1FA3A3]">Home</Link>
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <Link href="/locations" className="hover:text-[#2ABFBF]">Locations</Link>
+              <Link href="/locations" className="hover:text-[#1FA3A3]">Locations</Link>
             </li>
             <li aria-hidden="true">/</li>
             <li className="font-medium text-[#1a1a1a]">{location.name}</li>
@@ -115,8 +198,21 @@ export default async function LocationPage({
               </span>
             )}
           </div>
-          <p className="mt-2 text-base text-white/60">{location.crossStreets}</p>
+          <p className="mt-2 text-base text-white/80">{location.crossStreets}</p>
           <p className="mt-2 text-lg text-[#D4A843]">{location.address}</p>
+
+          {status && (
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold backdrop-blur-sm">
+              <span
+                className={`h-2 w-2 rounded-full ${status.isOpen ? 'bg-green-400' : 'bg-red-400'}`}
+                aria-hidden="true"
+              />
+              <span className={status.isOpen ? 'text-green-300' : 'text-red-300'}>
+                {status.isOpen ? 'Open Now' : 'Closed'}
+              </span>
+              <span className="text-white/70">— Today: {status.todayHours}</span>
+            </div>
+          )}
         </div>
       </section>
 
@@ -126,17 +222,27 @@ export default async function LocationPage({
             {/* Left Column: Details */}
             <div className="space-y-6">
               {/* Click-to-Call */}
-              <TrackedCallButton
-                phone={location.phone}
-                phoneRaw={location.phoneRaw}
-                locationName={location.name}
-                className="flex items-center justify-center gap-3 rounded-xl bg-[#2ABFBF] px-8 py-5 text-xl font-bold text-white shadow-lg transition-all hover:bg-[#229e9e] hover:shadow-xl"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Call {location.phone}
-              </TrackedCallButton>
+              {!isComingSoon && (
+                <TrackedCallButton
+                  phone={location.phone}
+                  phoneRaw={location.phoneRaw}
+                  locationName={location.name}
+                  className="flex items-center justify-center gap-3 rounded-xl bg-[#2ABFBF] px-8 py-5 text-xl font-bold text-white shadow-lg transition-all hover:bg-[#229e9e] hover:shadow-xl"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  Call {location.phone}
+                </TrackedCallButton>
+              )}
 
               {/* Hours */}
               <div className="rounded-xl bg-white p-6 shadow-md">
@@ -146,22 +252,32 @@ export default async function LocationPage({
                     {location.hours.map((h, i) => (
                       <tr key={i} className="border-b border-[#F5F0E8] last:border-0">
                         <td className="py-2.5 font-medium text-[#1a1a1a]">{h.days}</td>
-                        <td className="py-2.5 text-right text-[#1a1a1a]/70">
+                        <td className="py-2.5 text-right text-[#1a1a1a]/80">
                           {h.open} &ndash; {h.close}
                         </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-                <p className="mt-3 text-center text-sm font-semibold text-[#2ABFBF]">
+                <p className="mt-3 text-center text-sm font-semibold text-[#1FA3A3]">
                   Open on All Holidays!
+                </p>
+              </div>
+
+              {/* About this location */}
+              <div className="rounded-xl bg-white p-6 shadow-md">
+                <h2 className="mb-2 text-xl font-bold text-[#1a1a1a]">
+                  About our {location.name} location
+                </h2>
+                <p className="text-[#1a1a1a]/80">
+                  Visit us at {streetAddress} in {location.city}, MI — near {location.crossStreets.replace(/^Corner of\s*/i, '')}. We&apos;re a fresh fish, poultry &amp; seafood market serving Metro Detroit for 25+ years. Buy it raw for your kitchen or have us fry it up hot for carry-out.
                 </p>
               </div>
 
               {/* Info Cards */}
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl bg-white p-5 shadow-md">
-                  <h3 className="mb-2 text-sm font-bold uppercase tracking-widest text-[#1a1a1a]/40">
+                  <h3 className="mb-2 text-sm font-bold uppercase tracking-widest text-[#1a1a1a]/60">
                     Available Sauces
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -171,7 +287,7 @@ export default async function LocationPage({
                   </div>
                 </div>
                 <div className="rounded-xl bg-white p-5 shadow-md">
-                  <h3 className="mb-2 text-sm font-bold uppercase tracking-widest text-[#1a1a1a]/40">
+                  <h3 className="mb-2 text-sm font-bold uppercase tracking-widest text-[#1a1a1a]/60">
                     Payment
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -184,12 +300,12 @@ export default async function LocationPage({
 
               {/* Delivery */}
               <div className="rounded-xl bg-white p-5 shadow-md">
-                <h3 className="mb-2 text-sm font-bold uppercase tracking-widest text-[#1a1a1a]/40">
+                <h3 className="mb-2 text-sm font-bold uppercase tracking-widest text-[#1a1a1a]/60">
                   Delivery Partners
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {['DoorDash', 'UberEats'].map((p) => (
-                    <span key={p} className="rounded-full bg-[#2ABFBF]/10 px-3 py-1 text-sm font-medium text-[#2ABFBF]">{p}</span>
+                    <span key={p} className="rounded-full bg-[#2ABFBF]/10 px-3 py-1 text-sm font-medium text-[#1FA3A3]">{p}</span>
                   ))}
                 </div>
               </div>
@@ -197,10 +313,18 @@ export default async function LocationPage({
               {/* View Menu Link */}
               <Link
                 href="/menu"
-                className="flex items-center justify-center gap-2 rounded-xl bg-[#D4A843] px-8 py-4 text-lg font-bold text-white shadow-md transition-all hover:bg-[#c0963b] hover:shadow-lg"
+                className="flex items-center justify-center gap-2 rounded-xl bg-[#D4A843] px-8 py-4 text-lg font-bold text-[#1a1a1a] shadow-md transition-all hover:bg-[#c0963b] hover:shadow-lg"
               >
                 View Our Menu
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
@@ -223,9 +347,17 @@ export default async function LocationPage({
               <TrackedDirectionsButton
                 address={location.address}
                 locationName={location.name}
-                className="flex items-center justify-center gap-2 rounded-xl border-2 border-[#2ABFBF] bg-white px-6 py-3 font-bold text-[#2ABFBF] transition-colors hover:bg-[#2ABFBF] hover:text-white"
+                className="flex items-center justify-center gap-2 rounded-xl border-2 border-[#2ABFBF] bg-white px-6 py-3 font-bold text-[#1FA3A3] transition-colors hover:bg-[#2ABFBF] hover:text-white"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -236,8 +368,41 @@ export default async function LocationPage({
         </div>
       </div>
 
+      {/* FAQ */}
+      <section className="bg-white py-14">
+        <div className="mx-auto max-w-3xl px-4">
+          <h2 className="mb-8 text-center text-2xl font-bold text-[#1a1a1a] sm:text-3xl">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-3">
+            {faq.map((f) => (
+              <details
+                key={f.q}
+                className="group rounded-xl border border-[#1a1a1a]/10 bg-[#F5F0E8] p-5 transition-colors open:border-[#2ABFBF]/40 open:bg-white open:shadow-sm"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between font-semibold text-[#1a1a1a]">
+                  {f.q}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 shrink-0 text-[#1FA3A3] transition-transform group-open:rotate-180"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <p className="mt-3 text-[#1a1a1a]/80">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Other Locations */}
-      <section className="bg-white py-12">
+      <section className="bg-[#F5F0E8] py-12">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="mb-8 text-center text-2xl font-bold text-[#1a1a1a]">
             Other Locations
@@ -247,18 +412,18 @@ export default async function LocationPage({
               <Link
                 key={loc.slug}
                 href={`/locations/${loc.slug}`}
-                className="group rounded-xl border border-[#F5F0E8] p-4 transition-all hover:border-[#2ABFBF] hover:shadow-md"
+                className="group rounded-xl border border-[#1a1a1a]/10 bg-white p-4 transition-all hover:border-[#2ABFBF] hover:shadow-md"
               >
                 <div className="flex items-center gap-2">
-                  <h3 className="font-bold text-[#1a1a1a] group-hover:text-[#2ABFBF]">
+                  <h3 className="font-bold text-[#1a1a1a] group-hover:text-[#1FA3A3]">
                     {loc.name}
                   </h3>
                   {loc.badge && (
                     <span className="rounded-full bg-[#2ABFBF] px-2 py-0.5 text-[9px] font-bold uppercase text-white">{loc.badge}</span>
                   )}
                 </div>
-                <p className="mt-1 text-sm text-[#1a1a1a]/60">{loc.address}</p>
-                <p className="mt-1 text-sm font-medium text-[#2ABFBF]">{loc.phone}</p>
+                <p className="mt-1 text-sm text-[#1a1a1a]/70">{loc.address}</p>
+                <p className="mt-1 text-sm font-medium text-[#1FA3A3]">{loc.phone}</p>
               </Link>
             ))}
           </div>

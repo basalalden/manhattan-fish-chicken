@@ -4,35 +4,48 @@ import CallBanner from "@/components/CallBanner";
 import JsonLd from "@/components/JsonLd";
 import { locations } from "@/data/locations";
 
+export const revalidate = 60;
+
 const jsonLdData = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Manhattan Fish & Chicken",
-  description:
-    "Fresh fish, poultry and seafood market serving the Detroit metro area. Buy it raw or we'll fry it for you. Fresh fish, chicken, shrimp, dairy, grains, bread, and frozen vegetables & fruits.",
-  servesCuisine: ["Seafood", "American", "Soul Food"],
-  url: "https://www.manhattanchicken.com",
-  numberOfLocations: 7,
-  areaServed: "Detroit Metropolitan Area, Michigan",
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-  },
-  hasMenu: {
-    "@type": "Menu",
-    url: "https://www.manhattanchicken.com/menu",
-  },
-  acceptsReservations: false,
-  paymentAccepted: "Visa, Mastercard, American Express",
-  priceRange: "$$",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.manhattanchicken.com/#organization",
+      name: "Manhattan Fish & Chicken",
+      url: "https://www.manhattanchicken.com",
+      logo: "https://www.manhattanchicken.com/icon-mark.png",
+      description:
+        "Fresh fish, poultry and seafood market serving the Detroit metro area. Buy it raw or we'll fry it for you.",
+      areaServed: "Detroit Metropolitan Area, Michigan",
+    },
+    {
+      "@type": "FoodEstablishment",
+      "@id": "https://www.manhattanchicken.com/#brand",
+      name: "Manhattan Fish & Chicken",
+      url: "https://www.manhattanchicken.com",
+      image: "https://www.manhattanchicken.com/icon-mark.png",
+      description:
+        "Fresh fish, poultry and seafood market. Buy it raw or we'll fry it for you. Fresh fish, chicken, shrimp, dairy, grains, bread, and frozen vegetables & fruits.",
+      servesCuisine: ["Seafood", "American", "Soul Food"],
+      hasMenu: {
+        "@type": "Menu",
+        url: "https://www.manhattanchicken.com/menu",
+      },
+      acceptsReservations: false,
+      paymentAccepted: "Visa, Mastercard, American Express",
+      priceRange: "$$",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.manhattanchicken.com/#website",
+      url: "https://www.manhattanchicken.com",
+      name: "Manhattan Fish & Chicken",
+      publisher: {
+        "@id": "https://www.manhattanchicken.com/#organization",
+      },
+    },
+  ],
 };
 
 export default function Home() {
@@ -41,7 +54,7 @@ export default function Home() {
       {/* ── Hero Section ─────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1a6b6b] via-[#2ABFBF] to-[#1a8a8a]">
         {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10" aria-hidden="true">
           <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-white" />
           <div className="absolute -bottom-32 -left-32 h-[500px] w-[500px] rounded-full bg-white" />
           <div className="absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4A843]" />
@@ -66,7 +79,7 @@ export default function Home() {
             Fresh Fish, Poultry &amp; Seafood Market
           </p>
 
-          <p className="mx-auto mt-4 max-w-2xl text-base text-white/75 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-white sm:text-lg">
             Fresh fish, poultry &amp; seafood — buy it raw or we&apos;ll fry it for you.
             Serving the Detroit metro area from 7 locations.
           </p>
@@ -88,7 +101,7 @@ export default function Home() {
         </div>
 
         {/* Wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
+        <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
           <svg
             viewBox="0 0 1440 80"
             fill="none"
@@ -115,7 +128,7 @@ export default function Home() {
             <h2 className="mt-3 text-3xl font-extrabold text-[#1a1a1a] sm:text-4xl">
               Fresh Fish, Poultry &amp; Seafood Market
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-[#1a1a1a]/60">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-[#1a1a1a]/75">
               Buy it raw or we&apos;ll fry it for you — fresh fish, poultry, seafood, dairy, grains, bread, and frozen veggies &amp; fruits. Open every day, including all holidays.
             </p>
           </div>
@@ -126,7 +139,7 @@ export default function Home() {
             <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-[#1a1a1a]/5">
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2ABFBF] text-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
                   </svg>
                 </div>
@@ -147,7 +160,7 @@ export default function Home() {
             <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-[#1a1a1a]/5">
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D32F2F] text-white">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
                   </svg>
@@ -170,17 +183,17 @@ export default function Home() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-10 text-center">
             <div>
               <p className="text-4xl font-extrabold text-[#2ABFBF]">25+</p>
-              <p className="mt-1 text-sm font-medium text-[#1a1a1a]/50">Years</p>
+              <p className="mt-1 text-sm font-medium text-[#1a1a1a]/75">Years</p>
             </div>
-            <div className="h-10 w-px bg-[#1a1a1a]/10" />
+            <div className="h-10 w-px bg-[#1a1a1a]/10" aria-hidden="true" />
             <div>
               <p className="text-4xl font-extrabold text-[#D32F2F]">7</p>
-              <p className="mt-1 text-sm font-medium text-[#1a1a1a]/50">Locations</p>
+              <p className="mt-1 text-sm font-medium text-[#1a1a1a]/75">Locations</p>
             </div>
-            <div className="h-10 w-px bg-[#1a1a1a]/10" />
+            <div className="h-10 w-px bg-[#1a1a1a]/10" aria-hidden="true" />
             <div>
-              <p className="text-4xl font-extrabold text-[#D4A843]">365</p>
-              <p className="mt-1 text-sm font-medium text-[#1a1a1a]/50">Days Open</p>
+              <p className="text-4xl font-extrabold text-[#B8912E]">365</p>
+              <p className="mt-1 text-sm font-medium text-[#1a1a1a]/75">Days Open</p>
             </div>
           </div>
         </div>
@@ -196,7 +209,7 @@ export default function Home() {
             <h2 className="text-3xl font-extrabold text-[#1a1a1a] sm:text-4xl">
               7 Locations Across Metro Detroit
             </h2>
-            <p className="mt-3 text-[#1a1a1a]/60">
+            <p className="mt-3 text-[#1a1a1a]/75">
               Find the Manhattan Fish &amp; Chicken nearest you
             </p>
           </div>

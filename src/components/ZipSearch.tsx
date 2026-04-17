@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import type { Location } from '@/data/locations'
 import { trackUseMyLocation } from '@/lib/analytics'
+import { saveNearestSlug } from '@/lib/nearestLocation'
 
 // Approximate distance using Haversine formula
 function getDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
@@ -79,6 +80,9 @@ export default function ZipSearch({ locations, onSort, onReset }: ZipSearchProps
       }))
       .sort((a, b) => a.dist - b.dist)
       .map((item) => item.loc)
+
+    const nearestCallable = sorted.find((l) => l.badge !== 'Coming Soon')
+    if (nearestCallable) saveNearestSlug(nearestCallable.slug)
 
     setError('')
     setSearched(true)
@@ -159,21 +163,33 @@ export default function ZipSearch({ locations, onSort, onReset }: ZipSearchProps
         disabled={locating}
         className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-[#1a1a1a]/10 bg-white px-4 py-3 text-sm font-medium text-[#1a1a1a]/70 transition-colors hover:border-[#2ABFBF] hover:text-[#2ABFBF] disabled:opacity-50"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+          aria-hidden="true"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
         {locating ? 'Finding your location...' : 'Use My Location'}
       </button>
       {error && (
-        <p className="mt-2 text-center text-sm text-red-400">{error}</p>
+        <p className="mt-2 text-center text-sm font-medium text-red-600" role="alert">
+          {error}
+        </p>
       )}
       {searched && !error && (
         <div className="mt-2 flex items-center justify-center gap-2">
-          <p className="text-sm text-[#2ABFBF] font-medium">Sorted by nearest to {zip === 'My Location' ? 'you' : zip}</p>
+          <p className="text-sm font-medium text-[#1FA3A3]">
+            Sorted by nearest to {zip === 'My Location' ? 'you' : zip}
+          </p>
           <button
             onClick={handleReset}
-            className="text-sm text-[#1a1a1a]/40 underline hover:text-[#1a1a1a]/70"
+            className="text-sm text-[#1a1a1a]/70 underline hover:text-[#1a1a1a]"
           >
             Reset
           </button>

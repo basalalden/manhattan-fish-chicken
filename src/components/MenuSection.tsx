@@ -7,7 +7,7 @@ export default function MenuSection({ category }: { category: MenuCategory }) {
         {category.name}
       </h2>
       {category.description && (
-        <p className="mb-4 text-sm text-[#1a1a1a]/50">{category.description}</p>
+        <p className="mb-4 text-sm text-[#1a1a1a]/70">{category.description}</p>
       )}
 
       <div className="grid gap-1">
@@ -20,7 +20,7 @@ export default function MenuSection({ category }: { category: MenuCategory }) {
                   {item.name}
                 </span>
                 {item.description && (
-                  <span className="ml-2 text-sm text-[#1a1a1a]/50">
+                  <span className="ml-2 text-sm text-[#1a1a1a]/70">
                     {item.description}
                   </span>
                 )}
@@ -28,7 +28,7 @@ export default function MenuSection({ category }: { category: MenuCategory }) {
                   {item.variants.map((v) => (
                     <span key={v.label} className="text-sm text-[#1a1a1a]/70">
                       {v.label}{' '}
-                      <span className="font-semibold text-[#2ABFBF]">
+                      <span className="font-semibold text-[#1FA3A3]">
                         ${v.price}
                       </span>
                     </span>
@@ -43,13 +43,13 @@ export default function MenuSection({ category }: { category: MenuCategory }) {
                     {item.name}
                   </span>
                   {item.description && (
-                    <span className="ml-2 text-sm text-[#1a1a1a]/50">
+                    <span className="ml-2 text-sm text-[#1a1a1a]/70">
                       {item.description}
                     </span>
                   )}
                 </div>
                 {item.price && (
-                  <span className="shrink-0 text-[15px] font-semibold text-[#2ABFBF] sm:text-base">
+                  <span className="shrink-0 text-[15px] font-semibold text-[#1FA3A3] sm:text-base">
                     ${item.price}
                   </span>
                 )}

@@ -23,7 +23,7 @@ export default function Footer() {
                 <span className="text-[#D32F2F]">Chicken</span>
               </p>
             </div>
-            <p className="mt-3 text-sm text-white/60">
+            <p className="mt-3 text-sm text-white/80">
               Fresh Fish, Poultry & Seafood Market
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#2ABFBF]/15 px-3 py-1.5 text-xs font-semibold text-[#2ABFBF]">
@@ -33,22 +33,22 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-widest text-white/40">
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-widest text-white/70">
               Quick Links
             </h3>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-sm text-white/70 hover:text-white">Home</Link></li>
-              <li><Link href="/menu" className="text-sm text-white/70 hover:text-white">Menu</Link></li>
-              <li><Link href="/locations" className="text-sm text-white/70 hover:text-white">Locations</Link></li>
+              <li><Link href="/" className="text-sm text-white/80 hover:text-white">Home</Link></li>
+              <li><Link href="/menu" className="text-sm text-white/80 hover:text-white">Menu</Link></li>
+              <li><Link href="/locations" className="text-sm text-white/80 hover:text-white">Locations</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-widest text-white/40">
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-widest text-white/70">
               Order by Phone
             </h3>
-            <p className="text-sm text-white/60">
+            <p className="text-sm text-white/80">
               No online ordering — call your nearest location to place an order!
             </p>
             <Link
@@ -61,14 +61,14 @@ export default function Footer() {
 
           {/* Delivery & Payment */}
           <div>
-            <h3 className="mb-3 text-sm font-bold uppercase tracking-widest text-white/40">
+            <h3 className="mb-3 text-sm font-bold uppercase tracking-widest text-white/70">
               Delivery Partners
             </h3>
             <div className="flex flex-wrap gap-2">
               <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium">DoorDash</span>
               <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium">UberEats</span>
             </div>
-            <h3 className="mb-2 mt-4 text-sm font-bold uppercase tracking-widest text-white/40">
+            <h3 className="mb-2 mt-4 text-sm font-bold uppercase tracking-widest text-white/70">
               Payment
             </h3>
             <div className="flex gap-2">
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/40">
+        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/70">
           &copy; {new Date().getFullYear()} Manhattan Fish & Chicken. All rights reserved.
         </div>
       </div>
