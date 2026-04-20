@@ -63,7 +63,7 @@ export default function Header() {
             href="/locations"
             className="rounded-full bg-[#2ABFBF] px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-[#229e9e]"
           >
-            Call to Order
+            Find a Location
           </Link>
         </nav>
 
@@ -73,7 +73,7 @@ export default function Header() {
             href="/locations"
             className="rounded-full bg-[#2ABFBF] px-4 py-1.5 text-xs font-bold text-white"
           >
-            Call Now
+            Find Location
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
