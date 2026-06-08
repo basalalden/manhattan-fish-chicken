@@ -54,7 +54,7 @@ export const locations: Location[] = [
       { days: "Sunday", open: "11:00 AM", close: "10:00 PM" },
     ],
     isNew: true,
-    badge: "Coming Soon",
+    badge: "New",
     coordinates: { lat: 42.462, lng: -83.378 },
   },
   {
