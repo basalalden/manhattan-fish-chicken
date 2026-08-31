@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 import MenuSection from '@/components/MenuSection'
 import MenuNav from '@/components/MenuNav'
 import CallBanner from '@/components/CallBanner'
@@ -44,52 +43,52 @@ const menuJsonLd = {
       '@type': 'MenuSection',
       name: 'Fish Plates',
       hasMenuItem: [
-        { '@type': 'MenuItem', name: 'Whiting (4pc)', offers: { '@type': 'Offer', price: '8.49', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: 'Catfish (4pc)', offers: { '@type': 'Offer', price: '8.49', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: 'Ocean Perch (4pc)', offers: { '@type': 'Offer', price: '8.49', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: 'Tilapia (4pc)', offers: { '@type': 'Offer', price: '8.49', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Whiting (4pc)', offers: { '@type': 'Offer', price: '10.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Catfish (4pc)', offers: { '@type': 'Offer', price: '10.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Ocean Perch (4pc)', offers: { '@type': 'Offer', price: '10.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Tilapia (4pc)', offers: { '@type': 'Offer', price: '10.99', priceCurrency: 'USD' } },
       ],
     },
     {
       '@type': 'MenuSection',
       name: 'Whole Wings or Dark Meat',
       hasMenuItem: [
-        { '@type': 'MenuItem', name: '5pc Wings', offers: { '@type': 'Offer', price: '8.99', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: '10pc Wings', offers: { '@type': 'Offer', price: '14.99', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: '50pc Wings', offers: { '@type': 'Offer', price: '74.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: '5pc Wings', offers: { '@type': 'Offer', price: '11.49', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: '10pc Wings', offers: { '@type': 'Offer', price: '19.49', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: '50pc Wings', offers: { '@type': 'Offer', price: '94.99', priceCurrency: 'USD' } },
       ],
     },
     {
       '@type': 'MenuSection',
       name: 'Family Meals',
       hasMenuItem: [
-        { '@type': 'MenuItem', name: 'Family Meal 1 (8pc Fish + Large Fries)', offers: { '@type': 'Offer', price: '16.99', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: 'Family Meal 2 (10pc Fish + 10pc Chicken + 10pc Shrimp)', offers: { '@type': 'Offer', price: '39.99', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: 'Family Meal 3 (20pc Fish + 20pc Chicken + 20pc Shrimp)', offers: { '@type': 'Offer', price: '69.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Family Meal 1 (8pc Fish + Large Fries)', offers: { '@type': 'Offer', price: '21.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Family Meal 2 (10pc Fish + 10pc Chicken + 10pc Shrimp)', offers: { '@type': 'Offer', price: '49.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Family Meal 3 (20pc Fish + 20pc Chicken + 20pc Shrimp)', offers: { '@type': 'Offer', price: '89.99', priceCurrency: 'USD' } },
       ],
     },
     {
       '@type': 'MenuSection',
       name: 'Fish & Chicken Combo',
       hasMenuItem: [
-        { '@type': 'MenuItem', name: '4 Wings & 5 Shrimp', offers: { '@type': 'Offer', price: '12.99', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: '3 Pc Fish & 4 Wings', offers: { '@type': 'Offer', price: '13.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: '4 Wings & 5 Shrimp', offers: { '@type': 'Offer', price: '15.99', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: '3 Pc Fish & 4 Wings', offers: { '@type': 'Offer', price: '17.99', priceCurrency: 'USD' } },
       ],
     },
     {
       '@type': 'MenuSection',
       name: 'Sides',
       hasMenuItem: [
-        { '@type': 'MenuItem', name: 'Fries (Sm)', offers: { '@type': 'Offer', price: '3.49', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: 'Mac & Cheese (Sm)', offers: { '@type': 'Offer', price: '3.49', priceCurrency: 'USD' } },
-        { '@type': 'MenuItem', name: 'Collard Greens (Sm)', offers: { '@type': 'Offer', price: '3.49', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Fries (Sm)', offers: { '@type': 'Offer', price: '4.49', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Mac & Cheese (Sm)', offers: { '@type': 'Offer', price: '4.49', priceCurrency: 'USD' } },
+        { '@type': 'MenuItem', name: 'Collard Greens (Sm)', offers: { '@type': 'Offer', price: '4.49', priceCurrency: 'USD' } },
       ],
     },
   ],
 }
 
 const sectionGroups = [
-  { heading: 'Specials', ids: ['our-specials', 'family-meals', 'lunch-specials', 'dinner-specials', 'monday-thursday-specials'] },
+  { heading: 'Specials', ids: ['our-specials', 'sweet-spicy-offers', 'family-meals', 'lunch-specials', 'dinner-specials', 'monday-thursday-specials'] },
   { heading: 'Fish & Seafood', ids: ['fish-plates', 'fish-bucket', 'shrimp', 'oyster', 'lobster-crab'] },
   { heading: 'Chicken', ids: ['whole-wings', 'flavored-wing-dings', 'jumbo-popcorn-chicken', 'tenders', 'chicken-gizzard'] },
   { heading: 'Combos', ids: ['fish-chicken-combo'] },
@@ -132,8 +131,8 @@ export default function MenuPage() {
               <Image
                 src="/menu-page-1.webp"
                 alt="Manhattan Fish & Chicken Menu — Front: Locations, Specials, Lunch & Dinner Deals"
-                width={4608}
-                height={2798}
+                width={4200}
+                height={2551}
                 className="w-full h-auto"
                 priority
               />
@@ -142,8 +141,8 @@ export default function MenuPage() {
               <Image
                 src="/menu-page-2.webp"
                 alt="Manhattan Fish & Chicken Menu — Back: Fish Plates, Chicken Wings, Shrimp, Sides, Appetizers"
-                width={4608}
-                height={2798}
+                width={4200}
+                height={2550}
                 className="w-full h-auto"
               />
             </TrackedMenuPdfLink>

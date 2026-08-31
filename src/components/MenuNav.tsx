@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react'
 
 const navItems = [
   { id: 'our-specials', label: 'Specials' },
+  { id: 'sweet-spicy-offers', label: 'Sweet & Spicy' },
   { id: 'family-meals', label: 'Family Meals' },
-  { id: 'lunch-specials', label: '$10 Lunch' },
-  { id: 'dinner-specials', label: '$14 Dinner' },
+  { id: 'lunch-specials', label: '$13 Lunch' },
+  { id: 'dinner-specials', label: '$18 Dinner' },
   { id: 'monday-thursday-specials', label: 'Mon-Thu' },
   { id: 'fish-plates', label: 'Fish' },
   { id: 'fish-bucket', label: 'Bucket' },
